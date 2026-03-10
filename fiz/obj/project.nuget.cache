@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "QgtmZFZlpzc=",
+  "success": true,
+  "projectFilePath": "D:\\Учеба\\ПИЭ-23\\3 курс\\2 семестр\\Project\\fiz\\fiz\\fiz.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\tvoro\\.nuget\\packages\\sqlite\\3.13.0\\sqlite.3.13.0.nupkg.sha512",
+    "C:\\Users\\tvoro\\.nuget\\packages\\system.data.sqlite\\2.0.2\\system.data.sqlite.2.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
