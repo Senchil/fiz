@@ -102,6 +102,18 @@ namespace fiz
                 return;
             }
 
+            if (login.Length < 3)
+            {
+                MessageBox.Show("Логин должен быть не менее 3 символов!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (password.Length < 6)
+            {
+                MessageBox.Show("Пароль должен быть не менее 6 символов!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (password != confirmPassword)
             {
                 MessageBox.Show("Пароли не совпадают!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -112,7 +124,7 @@ namespace fiz
 
             if (success)
             {
-                MessageBox.Show("Регистрация успешна!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Регистрация успешна! Теперь войдите.", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             else

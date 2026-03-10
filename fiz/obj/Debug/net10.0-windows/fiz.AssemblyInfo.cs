@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("fiz")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+506754fb1b4db7d9fb09ce7a86445b1562c80be6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+377bd4f4f9350084abc5106a282de8fe34f658bb")]
 [assembly: System.Reflection.AssemblyProductAttribute("fiz")]
 [assembly: System.Reflection.AssemblyTitleAttribute("fiz")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

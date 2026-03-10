@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace fiz.Models
+﻿namespace fiz.Models
 {
     public class User
     {

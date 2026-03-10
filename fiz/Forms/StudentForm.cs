@@ -98,7 +98,7 @@ namespace fiz.Forms
             grid.Columns.Add("BirthDate", "Дата рождения");
             grid.Columns.Add("ContactInfo", "Контактные данные");
 
-            foreach (var student in Database.Students)
+            foreach (var student in Database.GetStudents())
             {
                 grid.Rows.Add(student.Id, student.FullName, student.Faculty, student.Group,
                     student.StudentCardNumber, student.BirthDate, student.ContactInfo);

@@ -14,7 +14,6 @@ namespace fiz
 
         public MainForm()
         {
-            //InitializeComponent();
             InitializeCustomControls();
         }
 
@@ -26,67 +25,67 @@ namespace fiz
             this.StartPosition = FormStartPosition.CenterScreen;
             this.WindowState = FormWindowState.Maximized;
 
-            // Шапка
-            headerPanel = new Panel();
-            headerPanel.BackColor = Color.FromArgb(32, 178, 170);
-            headerPanel.Dock = DockStyle.Top;
-            headerPanel.Height = 60;
+            // ===== ШАПКА =====
+            headerPanel = new Panel
+            {
+                BackColor = Color.FromArgb(32, 178, 170),
+                Dock = DockStyle.Top,
+                Height = 60
+            };
 
-            Label titleLabel = new Label();
-            titleLabel.Text = "Спортивные достижения студентов";
-            titleLabel.ForeColor = Color.White;
-            titleLabel.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold);
-            titleLabel.AutoSize = false;
-            titleLabel.Dock = DockStyle.Left;
-            titleLabel.Width = 400;
-            titleLabel.TextAlign = ContentAlignment.MiddleLeft;
-            titleLabel.Padding = new Padding(20, 0, 0, 0);
+            Label titleLabel = new Label
+            {
+                Text = "Спортивные достижения студентов",
+                ForeColor = Color.White,
+                Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold),
+                AutoSize = false,
+                Dock = DockStyle.Left,
+                Width = 400,
+                TextAlign = ContentAlignment.MiddleLeft,
+                Padding = new Padding(20, 0, 0, 0)
+            };
             headerPanel.Controls.Add(titleLabel);
 
-            welcomeLabel = new Label();
-            welcomeLabel.Text = $"Админ: {Database.CurrentUser?.Login}";
-            welcomeLabel.ForeColor = Color.White;
-            welcomeLabel.Font = new Font("Microsoft Sans Serif", 11F);
-            welcomeLabel.AutoSize = true;
-            welcomeLabel.Location = new Point(450, 18);
+            welcomeLabel = new Label
+            {
+                Text = $"Админ: {Database.CurrentUser?.Login}",
+                ForeColor = Color.White,
+                Font = new Font("Microsoft Sans Serif", 11F),
+                AutoSize = true,
+                Location = new Point(450, 18)
+            };
             headerPanel.Controls.Add(welcomeLabel);
 
-            logoutButton = new Button();
-            logoutButton.Text = "Выйти";
-            logoutButton.BackColor = Color.White;
-            logoutButton.ForeColor = Color.FromArgb(32, 178, 170);
-            logoutButton.FlatStyle = FlatStyle.Flat;
-            logoutButton.FlatAppearance.BorderSize = 0;
-            logoutButton.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
-            logoutButton.Size = new Size(100, 35);
-            logoutButton.Location = new Point(this.Width - 130, 12);
-            logoutButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            logoutButton.Cursor = Cursors.Hand;
+            logoutButton = new Button
+            {
+                Text = "Выйти",
+                BackColor = Color.White,
+                ForeColor = Color.FromArgb(32, 178, 170),
+                FlatStyle = FlatStyle.Flat,
+                FlatAppearance = { BorderSize = 0 },
+                Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold),
+                Size = new Size(100, 35),
+                Location = new Point(this.Width - 130, 12),
+                Anchor = AnchorStyles.Top | AnchorStyles.Right,
+                Cursor = Cursors.Hand
+            };
             logoutButton.Click += LogoutButton_Click;
             headerPanel.Controls.Add(logoutButton);
 
-            // Табы
-            mainTabControl = new TabControl();
-            mainTabControl.Dock = DockStyle.Fill;
-            mainTabControl.Font = new Font("Microsoft Sans Serif", 11F);
-            mainTabControl.ItemSize = new Size(120, 40);
+            // ===== ТАБЫ =====
+            mainTabControl = new TabControl
+            {
+                Dock = DockStyle.Fill,
+                Font = new Font("Microsoft Sans Serif", 11F),
+                ItemSize = new Size(120, 40)
+            };
 
-            // Страница Студенты
-            TabPage studentsTab = new TabPage("Студенты");
-            studentsTab.Padding = new Padding(10);
-            mainTabControl.TabPages.Add(studentsTab);
+            TabPage studentsTab = new TabPage("Студенты") { Padding = new Padding(10) };
+            TabPage eventsTab = new TabPage("Мероприятия") { Padding = new Padding(10) };
+            TabPage participationsTab = new TabPage("Участия") { Padding = new Padding(10) };
 
-            // Страница Мероприятия
-            TabPage eventsTab = new TabPage("Мероприятия");
-            eventsTab.Padding = new Padding(10);
-            mainTabControl.TabPages.Add(eventsTab);
+            mainTabControl.TabPages.AddRange(new[] { studentsTab, eventsTab, participationsTab });
 
-            // Страница Участия
-            TabPage participationsTab = new TabPage("Участия");
-            participationsTab.Padding = new Padding(10);
-            mainTabControl.TabPages.Add(participationsTab);
-
-            // Добавляем контролы на страницы
             InitializeStudentsTab(studentsTab);
             InitializeEventsTab(eventsTab);
             InitializeParticipationsTab(participationsTab);
@@ -95,206 +94,163 @@ namespace fiz
             this.Controls.Add(headerPanel);
         }
 
+        // ===== СТУДЕНТЫ =====
         private void InitializeStudentsTab(TabPage tab)
         {
-            Button addStudentBtn = new Button();
-            addStudentBtn.Text = "Добавить студента";
-            addStudentBtn.BackColor = Color.FromArgb(32, 178, 170);
-            addStudentBtn.ForeColor = Color.White;
-            addStudentBtn.FlatStyle = FlatStyle.Flat;
-            addStudentBtn.FlatAppearance.BorderSize = 0;
-            addStudentBtn.Size = new Size(180, 35);
-            addStudentBtn.Location = new Point(10, 10);
-            addStudentBtn.Cursor = Cursors.Hand;
-            addStudentBtn.Click += (s, e) => OpenStudentForm();
-            tab.Controls.Add(addStudentBtn);
+            Button addBtn = CreateActionButton("Добавить студента", 10, 10, 180, 35);
+            addBtn.Click += (s, e) => OpenStudentForm();
 
-            Button editStudentBtn = new Button();
-            editStudentBtn.Text = "Редактировать";
-            editStudentBtn.BackColor = Color.FromArgb(32, 178, 170);
-            editStudentBtn.ForeColor = Color.White;
-            editStudentBtn.FlatStyle = FlatStyle.Flat;
-            editStudentBtn.FlatAppearance.BorderSize = 0;
-            editStudentBtn.Size = new Size(150, 35);
-            editStudentBtn.Location = new Point(200, 10);
-            editStudentBtn.Cursor = Cursors.Hand;
-            tab.Controls.Add(editStudentBtn);
+            Button editBtn = CreateActionButton("Редактировать", 200, 10, 150, 35);
 
-            DataGridView grid = new DataGridView();
-            grid.Location = new Point(10, 55);
-            grid.Size = new Size(tab.Width - 30, tab.Height - 75);
-            grid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            grid.AllowUserToAddRows = false;
-            grid.ReadOnly = true;
-
-            grid.Columns.Add("Id", "№");
-            grid.Columns.Add("FullName", "ФИО");
-            grid.Columns.Add("Faculty", "Факультет");
-            grid.Columns.Add("Group", "Группа");
-            grid.Columns.Add("StudentCardNumber", "Номер студ. билета");
-            grid.Columns.Add("BirthDate", "Дата рождения");
-            grid.Columns.Add("ContactInfo", "Контактные данные");
+            DataGridView grid = CreateGrid(10, 55, tab);
+            grid.Columns.AddRange(
+                new DataGridViewColumn[] {
+                    CreateColumn("Id", "№", 40),
+                    CreateColumn("FullName", "ФИО", 200),
+                    CreateColumn("Faculty", "Факультет", 120),
+                    CreateColumn("Group", "Группа", 80),
+                    CreateColumn("StudentCardNumber", "Номер студ. билета", 120),
+                    CreateColumn("BirthDate", "Дата рождения", 100),
+                    CreateColumn("ContactInfo", "Контактные данные", 150)
+                });
 
             RefreshStudentGrid(grid);
-            tab.Controls.Add(grid);
+
+            tab.Controls.AddRange(new Control[] { addBtn, editBtn, grid });
         }
 
         private void RefreshStudentGrid(DataGridView grid)
         {
             grid.Rows.Clear();
-            var students = Database.GetStudents();
-            foreach (var student in students)
+            foreach (var s in Database.GetStudents())
             {
-                grid.Rows.Add(student.Id, student.FullName, student.Faculty, student.Group,
-                    student.StudentCardNumber, student.BirthDate, student.ContactInfo);
+                grid.Rows.Add(s.Id, s.FullName, s.Faculty, s.Group,
+                    s.StudentCardNumber, s.BirthDate, s.ContactInfo);
             }
         }
 
-        private void RefreshEventGrid(DataGridView grid)
-        {
-            grid.Rows.Clear();
-            var events = Database.GetEvents();
-            foreach (var ev in events)
-            {
-                grid.Rows.Add(ev.Id, ev.Name, ev.Date, ev.Location, ev.Organizer, ev.ParticipantCount, ev.SportType);
-            }
-        }
-
-        private void RefreshParticipationGrid(DataGridView grid)
-        {
-            grid.Rows.Clear();
-            var participations = Database.GetParticipations();
-            foreach (var p in participations)
-            {
-                grid.Rows.Add(p.Id, p.EventName, p.StudentName, p.Result, p.Award, p.Rank, p.AddedBy, p.Date);
-            }
-        }
-
+        // ===== МЕРОПРИЯТИЯ =====
         private void InitializeEventsTab(TabPage tab)
         {
-            Button addEventBtn = new Button();
-            addEventBtn.Text = "Добавить мероприятие";
-            addEventBtn.BackColor = Color.FromArgb(32, 178, 170);
-            addEventBtn.ForeColor = Color.White;
-            addEventBtn.FlatStyle = FlatStyle.Flat;
-            addEventBtn.FlatAppearance.BorderSize = 0;
-            addEventBtn.Size = new Size(200, 35);
-            addEventBtn.Location = new Point(10, 10);
-            addEventBtn.Cursor = Cursors.Hand;
-            addEventBtn.Click += (s, e) => OpenEventForm();
-            tab.Controls.Add(addEventBtn);
+            Button addBtn = CreateActionButton("Добавить мероприятие", 10, 10, 200, 35);
+            addBtn.Click += (s, e) => OpenEventForm();
 
-            Button editEventBtn = new Button();
-            editEventBtn.Text = "Редактировать";
-            editEventBtn.BackColor = Color.FromArgb(32, 178, 170);
-            editEventBtn.ForeColor = Color.White;
-            editEventBtn.FlatStyle = FlatStyle.Flat;
-            editEventBtn.FlatAppearance.BorderSize = 0;
-            editEventBtn.Size = new Size(150, 35);
-            editEventBtn.Location = new Point(220, 10);
-            editEventBtn.Cursor = Cursors.Hand;
-            tab.Controls.Add(editEventBtn);
+            Button editBtn = CreateActionButton("Редактировать", 220, 10, 150, 35);
 
-            DataGridView grid = new DataGridView();
-            grid.Location = new Point(10, 55);
-            grid.Size = new Size(tab.Width - 30, tab.Height - 75);
-            grid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            grid.AllowUserToAddRows = false;
-            grid.ReadOnly = true;
-
-            grid.Columns.Add("Id", "№");
-            grid.Columns.Add("Name", "Название");
-            grid.Columns.Add("Date", "Дата");
-            grid.Columns.Add("Location", "Место проведения");
-            grid.Columns.Add("Organizer", "Организатор");
-            grid.Columns.Add("ParticipantCount", "Количество участников");
-            grid.Columns.Add("SportType", "Вид спорта");
+            DataGridView grid = CreateGrid(10, 55, tab);
+            grid.Columns.AddRange(
+                new DataGridViewColumn[] {
+                    CreateColumn("Id", "№", 40),
+                    CreateColumn("Name", "Название", 200),
+                    CreateColumn("Date", "Дата", 100),
+                    CreateColumn("Location", "Место проведения", 150),
+                    CreateColumn("Organizer", "Организатор", 120),
+                    CreateColumn("ParticipantCount", "Участников", 80),
+                    CreateColumn("SportType", "Вид спорта", 120)
+                });
 
             RefreshEventGrid(grid);
-            tab.Controls.Add(grid);
+
+            tab.Controls.AddRange(new Control[] { addBtn, editBtn, grid });
         }
 
         private void RefreshEventGrid(DataGridView grid)
         {
             grid.Rows.Clear();
-            foreach (var ev in Database.Events)
+            foreach (var ev in Database.GetEvents())
             {
-                grid.Rows.Add(ev.Id, ev.Name, ev.Date, ev.Location, ev.Organizer, ev.ParticipantCount, ev.SportType);
+                grid.Rows.Add(ev.Id, ev.Name, ev.Date, ev.Location,
+                    ev.Organizer, ev.ParticipantCount, ev.SportType);
             }
         }
 
+        // ===== УЧАСТИЯ =====
         private void InitializeParticipationsTab(TabPage tab)
         {
-            Button addParticipationBtn = new Button();
-            addParticipationBtn.Text = "Добавить участие";
-            addParticipationBtn.BackColor = Color.FromArgb(32, 178, 170);
-            addParticipationBtn.ForeColor = Color.White;
-            addParticipationBtn.FlatStyle = FlatStyle.Flat;
-            addParticipationBtn.FlatAppearance.BorderSize = 0;
-            addParticipationBtn.Size = new Size(180, 35);
-            addParticipationBtn.Location = new Point(10, 10);
-            addParticipationBtn.Cursor = Cursors.Hand;
-            addParticipationBtn.Click += (s, e) => OpenParticipationForm();
-            tab.Controls.Add(addParticipationBtn);
+            Button addBtn = CreateActionButton("Добавить участие", 10, 10, 180, 35);
+            addBtn.Click += (s, e) => OpenParticipationForm();
 
-            Button editParticipationBtn = new Button();
-            editParticipationBtn.Text = "Редактировать";
-            editParticipationBtn.BackColor = Color.FromArgb(32, 178, 170);
-            editParticipationBtn.ForeColor = Color.White;
-            editParticipationBtn.FlatStyle = FlatStyle.Flat;
-            editParticipationBtn.FlatAppearance.BorderSize = 0;
-            editParticipationBtn.Size = new Size(150, 35);
-            editParticipationBtn.Location = new Point(200, 10);
-            editParticipationBtn.Cursor = Cursors.Hand;
-            tab.Controls.Add(editParticipationBtn);
+            Button editBtn = CreateActionButton("Редактировать", 200, 10, 150, 35);
 
-            DataGridView grid = new DataGridView();
-            grid.Location = new Point(10, 55);
-            grid.Size = new Size(tab.Width - 30, tab.Height - 75);
-            grid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            grid.AllowUserToAddRows = false;
-            grid.ReadOnly = true;
-
-            grid.Columns.Add("Id", "№");
-            grid.Columns.Add("EventName", "Мероприятие");
-            grid.Columns.Add("StudentName", "Студент");
-            grid.Columns.Add("Result", "Результат");
-            grid.Columns.Add("Award", "Награда");
-            grid.Columns.Add("Rank", "Разряд");
-            grid.Columns.Add("AddedBy", "Внесен пользователем");
-            grid.Columns.Add("Date", "Дата");
+            DataGridView grid = CreateGrid(10, 55, tab);
+            grid.Columns.AddRange(
+                new DataGridViewColumn[] {
+                    CreateColumn("Id", "№", 40),
+                    CreateColumn("EventName", "Мероприятие", 150),
+                    CreateColumn("StudentName", "Студент", 200),
+                    CreateColumn("Result", "Результат", 120),
+                    CreateColumn("Award", "Награда", 100),
+                    CreateColumn("Rank", "Разряд", 100),
+                    CreateColumn("AddedBy", "Внёс", 100),
+                    CreateColumn("Date", "Дата", 100)
+                });
 
             RefreshParticipationGrid(grid);
-            tab.Controls.Add(grid);
+
+            tab.Controls.AddRange(new Control[] { addBtn, editBtn, grid });
         }
 
         private void RefreshParticipationGrid(DataGridView grid)
         {
             grid.Rows.Clear();
-            foreach (var p in Database.Participations)
+            foreach (var p in Database.GetParticipations())
             {
-                grid.Rows.Add(p.Id, p.EventName, p.StudentName, p.Result, p.Award, p.Rank, p.AddedBy, p.Date);
+                grid.Rows.Add(p.Id, p.EventName, p.StudentName, p.Result,
+                    p.Award, p.Rank, p.AddedBy, p.Date);
             }
         }
 
-        private void OpenStudentForm()
+        // ===== ВСПОМОГАТЕЛЬНЫЕ МЕТОДЫ =====
+        private Button CreateActionButton(string text, int x, int y, int w, int h)
         {
-            // Здесь можно открыть форму добавления студента
+            return new Button
+            {
+                Text = text,
+                BackColor = Color.FromArgb(32, 178, 170),
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat,
+                FlatAppearance = { BorderSize = 0 },
+                Font = new Font("Microsoft Sans Serif", 10F),
+                Size = new Size(w, h),
+                Location = new Point(x, y),
+                Cursor = Cursors.Hand
+            };
+        }
+
+        private DataGridView CreateGrid(int x, int y, TabPage tab)
+        {
+            return new DataGridView
+            {
+                Location = new Point(x, y),
+                Size = new Size(tab.Width - 30, tab.Height - 75),
+                Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right,
+                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
+                AllowUserToAddRows = false,
+                ReadOnly = true,
+                SelectionMode = DataGridViewSelectionMode.FullRowSelect,
+                RowHeadersVisible = false
+            };
+        }
+
+        private DataGridViewColumn CreateColumn(string name, string header, int width)
+        {
+            return new DataGridViewTextBoxColumn
+            {
+                Name = name,
+                HeaderText = header,
+                Width = width
+            };
+        }
+
+        // ===== ОБРАБОТЧИКИ =====
+        private void OpenStudentForm() =>
             MessageBox.Show("Форма добавления студента", "Инфо", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
 
-        private void OpenEventForm()
-        {
+        private void OpenEventForm() =>
             MessageBox.Show("Форма добавления мероприятия", "Инфо", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
 
-        private void OpenParticipationForm()
-        {
+        private void OpenParticipationForm() =>
             MessageBox.Show("Форма добавления участия", "Инфо", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
 
         private void LogoutButton_Click(object sender, EventArgs e)
         {

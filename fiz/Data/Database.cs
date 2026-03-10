@@ -5,21 +5,75 @@ namespace fiz.Data
 {
     public static class Database
     {
-        // Текущий пользователь
-        public static User CurrentUser { get; set; }
+        // Текущий пользователь (может быть null если не авторизован)
+        public static User? CurrentUser { get; set; }
 
-        // Методы для получения данных из БД
-        public static List<Student> GetStudents() => SQLiteHelper.GetAllStudents();
-        public static List<Event> GetEvents() => SQLiteHelper.GetAllEvents();
-        public static List<Participation> GetParticipations() => SQLiteHelper.GetAllParticipations();
+        // ========== АВТОРИЗАЦИЯ И РЕГИСТРАЦИЯ ==========
 
-        // Методы для добавления
-        public static void AddStudent(Student student) => SQLiteHelper.AddStudent(student);
-        public static void AddEvent(Event ev) => SQLiteHelper.AddEvent(ev);
-        public static void AddParticipation(Participation participation) => SQLiteHelper.AddParticipation(participation);
+        /// <summary>
+        /// Аутентификация пользователя
+        /// </summary>
+        public static User? Authenticate(string login, string password) =>
+            SQLiteHelper.AuthenticateUser(login, password);
 
-        // Авторизация и регистрация
-        public static User Authenticate(string login, string password) => SQLiteHelper.AuthenticateUser(login, password);
-        public static bool Register(string login, string password) => SQLiteHelper.RegisterUser(login, password);
+        /// <summary>
+        /// Регистрация нового пользователя
+        /// </summary>
+        public static bool Register(string login, string password) =>
+            SQLiteHelper.RegisterUser(login, password);
+
+        // ========== СТУДЕНТЫ ==========
+
+        /// <summary>
+        /// Получить всех студентов
+        /// </summary>
+        public static List<Student> GetStudents() =>
+            SQLiteHelper.GetAllStudents();
+
+        /// <summary>
+        /// Добавить студента
+        /// </summary>
+        public static void AddStudent(Student student) =>
+            SQLiteHelper.AddStudent(student);
+
+        /// <summary>
+        /// Обновить данные студента
+        /// </summary>
+        public static void UpdateStudent(Student student) =>
+            SQLiteHelper.UpdateStudent(student);
+
+        /// <summary>
+        /// Удалить студента по ID
+        /// </summary>
+        public static void DeleteStudent(int id) =>
+            SQLiteHelper.DeleteStudent(id);
+
+        // ========== МЕРОПРИЯТИЯ ==========
+
+        /// <summary>
+        /// Получить все мероприятия
+        /// </summary>
+        public static List<Event> GetEvents() =>
+            SQLiteHelper.GetAllEvents();
+
+        /// <summary>
+        /// Добавить мероприятие
+        /// </summary>
+        public static void AddEvent(Event ev) =>
+            SQLiteHelper.AddEvent(ev);
+
+        // ========== УЧАСТИЯ ==========
+
+        /// <summary>
+        /// Получить все участия
+        /// </summary>
+        public static List<Participation> GetParticipations() =>
+            SQLiteHelper.GetAllParticipations();
+
+        /// <summary>
+        /// Добавить участие
+        /// </summary>
+        public static void AddParticipation(Participation p) =>
+            SQLiteHelper.AddParticipation(p);
     }
 }

@@ -98,6 +98,12 @@ namespace fiz
             string login = textBoxLogin.Text.Trim();
             string password = textBoxPassword.Text.Trim();
 
+            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Введите логин и пароль!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             var user = Database.Authenticate(login, password);
 
             if (user != null)

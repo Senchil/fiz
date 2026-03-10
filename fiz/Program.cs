@@ -1,5 +1,6 @@
 using System;
 using System.Windows.Forms;
+using fiz.Data;
 
 namespace fiz
 {
@@ -10,6 +11,10 @@ namespace fiz
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            // ИНИЦИАЛИЗИРУЕМ БД ПЕРЕД ЗАПУСКОМ!
+            SQLiteHelper.Initialize();
+
             Application.Run(new LoginForm());
         }
     }
