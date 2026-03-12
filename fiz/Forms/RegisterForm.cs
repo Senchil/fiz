@@ -54,6 +54,8 @@ namespace fiz
             // Пароль
             textBoxPassword = new RoundedTextBox();
             textBoxPassword.PlaceholderText = "Пароль";
+            textBoxPassword.PasswordChar = '*';
+            textBoxPassword.ShowPasswordToggle = true;
             textBoxPassword.BackColor = Color.FromArgb(240, 240, 240);
             textBoxPassword.ForeColor = Color.Gray;
             textBoxPassword.Size = new Size(250, 35);
@@ -63,6 +65,8 @@ namespace fiz
             // Повтор пароля
             textBoxPasswordConfirm = new RoundedTextBox();
             textBoxPasswordConfirm.PlaceholderText = "Повторите пароль";
+            textBoxPasswordConfirm.PasswordChar = '*';
+            textBoxPasswordConfirm.ShowPasswordToggle = true;
             textBoxPasswordConfirm.BackColor = Color.FromArgb(240, 240, 240);
             textBoxPasswordConfirm.ForeColor = Color.Gray;
             textBoxPasswordConfirm.Size = new Size(250, 35);

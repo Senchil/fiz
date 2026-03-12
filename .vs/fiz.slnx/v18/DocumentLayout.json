@@ -3,6 +3,38 @@
   "WorkspaceRootPath": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u043F\u0438\u044D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\project\\fiz\\fiz\\roundedcontrols.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\roundedcontrols.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u043F\u0438\u044D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\project\\fiz\\fiz\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u043F\u0438\u044D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\project\\fiz\\fiz\\forms\\registerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\registerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u043F\u0438\u044D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\project\\fiz\\fiz\\forms\\eventform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\eventform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u043F\u0438\u044D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\project\\fiz\\fiz\\data\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\data\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u043F\u0438\u044D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\project\\fiz\\fiz\\models\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\models\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u043F\u0438\u044D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\project\\fiz\\fiz\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u043F\u0438\u044D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\project\\fiz\\fiz\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u043F\u0438\u044D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\project\\fiz\\fiz\\data\\sqlitehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\data\\sqlitehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,28 +43,12 @@
       "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\studentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u043F\u0438\u044D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\project\\fiz\\fiz\\roundedcontrols.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\roundedcontrols.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u043F\u0438\u044D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\project\\fiz\\fiz\\data\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\data\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u043F\u0438\u044D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\project\\fiz\\fiz\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u043F\u0438\u044D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\project\\fiz\\fiz\\forms\\eventform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\eventform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\forms\\eventform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\eventform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u043F\u0438\u044D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\project\\fiz\\fiz\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u043F\u0438\u044D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\project\\fiz\\fiz\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -43,16 +59,8 @@
       "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\participationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u043F\u0438\u044D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\project\\fiz\\fiz\\forms\\registerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\registerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u043F\u0438\u044D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\project\\fiz\\fiz\\forms\\studentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\studentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u043F\u0438\u044D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\project\\fiz\\fiz\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -74,88 +82,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "StudentForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\StudentForm.cs",
-              "RelativeDocumentMoniker": "fiz\\Forms\\StudentForm.cs",
-              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\StudentForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "fiz\\Forms\\StudentForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T09:08:30.172Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ParticipationForm.cs",
-              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\ParticipationForm.cs",
-              "RelativeDocumentMoniker": "fiz\\Forms\\ParticipationForm.cs",
-              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\ParticipationForm.cs",
-              "RelativeToolTip": "fiz\\Forms\\ParticipationForm.cs",
-              "ViewState": "AgIAAE4AAAAAAAAAAIBJwGQAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T07:53:35.939Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Program.cs",
-              "RelativeDocumentMoniker": "fiz\\Program.cs",
-              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Program.cs",
-              "RelativeToolTip": "fiz\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T08:53:19.877Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Database.cs",
-              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Data\\Database.cs",
-              "RelativeDocumentMoniker": "fiz\\Data\\Database.cs",
-              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Data\\Database.cs",
-              "RelativeToolTip": "fiz\\Data\\Database.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAgwE4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T08:16:10.602Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "StudentForm.cs",
-              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\StudentForm.cs",
-              "RelativeDocumentMoniker": "fiz\\Forms\\StudentForm.cs",
-              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\StudentForm.cs",
-              "RelativeToolTip": "fiz\\Forms\\StudentForm.cs",
-              "ViewState": "AgIAAE4AAAAAAAAAAIBJwGQAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T08:03:08.519Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "RegisterForm.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\RegisterForm.cs",
+              "RelativeDocumentMoniker": "fiz\\Forms\\RegisterForm.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\RegisterForm.cs",
+              "RelativeToolTip": "fiz\\Forms\\RegisterForm.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAqwEQAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T08:03:01.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Event.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Models\\Event.cs",
+              "RelativeDocumentMoniker": "fiz\\Models\\Event.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Models\\Event.cs",
+              "RelativeToolTip": "fiz\\Models\\Event.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T07:31:02.04Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Student.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Models\\Student.cs",
+              "RelativeDocumentMoniker": "fiz\\Models\\Student.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Models\\Student.cs",
+              "RelativeToolTip": "fiz\\Models\\Student.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T07:30:57.017Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "RoundedControls.cs",
               "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\RoundedControls.cs",
               "RelativeDocumentMoniker": "fiz\\RoundedControls.cs",
               "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\RoundedControls.cs",
               "RelativeToolTip": "fiz\\RoundedControls.cs",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAqwIQAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAOgAAAAAAAAAAAAwwPsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-10T08:06:38.53Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 8,
               "Title": "SQLiteHelper.cs",
               "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Data\\SQLiteHelper.cs",
               "RelativeDocumentMoniker": "fiz\\Data\\SQLiteHelper.cs",
@@ -168,82 +151,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "EventForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentIndex": 11,
+              "Title": "EventForm.cs [Design]",
               "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\EventForm.cs",
               "RelativeDocumentMoniker": "fiz\\Forms\\EventForm.cs",
-              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\EventForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "fiz\\Forms\\EventForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\EventForm.cs [Design]",
+              "RelativeToolTip": "fiz\\Forms\\EventForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-10T08:14:37.632Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "RegisterForm.cs",
-              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\RegisterForm.cs",
-              "RelativeDocumentMoniker": "fiz\\Forms\\RegisterForm.cs",
-              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\RegisterForm.cs",
-              "RelativeToolTip": "fiz\\Forms\\RegisterForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T08:03:01.312Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "EventForm.cs",
-              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\EventForm.cs",
-              "RelativeDocumentMoniker": "fiz\\Forms\\EventForm.cs",
-              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\EventForm.cs",
-              "RelativeToolTip": "fiz\\Forms\\EventForm.cs",
-              "ViewState": "AgIAAE4AAAAAAAAAAIBJwG4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T07:57:39.621Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "LoginForm.cs",
-              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\LoginForm.cs",
-              "RelativeDocumentMoniker": "fiz\\Forms\\LoginForm.cs",
-              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\LoginForm.cs",
-              "RelativeToolTip": "fiz\\Forms\\LoginForm.cs",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAqwHgAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T07:37:29.714Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "MainForm.cs",
-              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\MainForm.cs",
-              "RelativeDocumentMoniker": "fiz\\Forms\\MainForm.cs",
-              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\MainForm.cs",
-              "RelativeToolTip": "fiz\\Forms\\MainForm.cs",
-              "ViewState": "AgIAAPUAAAAAAAAAAAAxwAEBAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T08:02:37.852Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "EventForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\EventForm.cs",
-              "RelativeDocumentMoniker": "fiz\\Forms\\EventForm.cs",
-              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\EventForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "fiz\\Forms\\EventForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T07:57:36.815Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 6,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Models\\User.cs",
               "RelativeDocumentMoniker": "fiz\\Models\\User.cs",
@@ -256,27 +176,135 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EventForm.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\EventForm.cs",
+              "RelativeDocumentMoniker": "fiz\\Forms\\EventForm.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\EventForm.cs",
+              "RelativeToolTip": "fiz\\Forms\\EventForm.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAAAFsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T07:57:39.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LoginForm.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\LoginForm.cs",
+              "RelativeDocumentMoniker": "fiz\\Forms\\LoginForm.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\LoginForm.cs",
+              "RelativeToolTip": "fiz\\Forms\\LoginForm.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAiwD0AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T07:37:29.714Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Database.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Data\\Database.cs",
+              "RelativeDocumentMoniker": "fiz\\Data\\Database.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Data\\Database.cs",
+              "RelativeToolTip": "fiz\\Data\\Database.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwEYAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T08:16:10.602Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "StudentForm.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\StudentForm.cs",
+              "RelativeDocumentMoniker": "fiz\\Forms\\StudentForm.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\StudentForm.cs",
+              "RelativeToolTip": "fiz\\Forms\\StudentForm.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAIBJwGQAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T08:03:08.519Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Program.cs",
+              "RelativeDocumentMoniker": "fiz\\Program.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Program.cs",
+              "RelativeToolTip": "fiz\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T08:53:19.877Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 13,
+              "Title": "ParticipationForm.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\ParticipationForm.cs",
+              "RelativeDocumentMoniker": "fiz\\Forms\\ParticipationForm.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\ParticipationForm.cs",
+              "RelativeToolTip": "fiz\\Forms\\ParticipationForm.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAIBJwGQAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T07:53:35.939Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "StudentForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\StudentForm.cs",
+              "RelativeDocumentMoniker": "fiz\\Forms\\StudentForm.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\StudentForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "fiz\\Forms\\StudentForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T09:08:30.172Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\MainForm.cs",
+              "RelativeDocumentMoniker": "fiz\\Forms\\MainForm.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\MainForm.cs",
+              "RelativeToolTip": "fiz\\Forms\\MainForm.cs",
+              "ViewState": "AgIAAPUAAAAAAAAAAAAxwAEBAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T08:02:37.852Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "EventForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\EventForm.cs",
+              "RelativeDocumentMoniker": "fiz\\Forms\\EventForm.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\EventForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "fiz\\Forms\\EventForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T07:57:36.815Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "MainForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\MainForm.cs",
               "RelativeDocumentMoniker": "fiz\\Forms\\MainForm.cs",
               "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\MainForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "RelativeToolTip": "fiz\\Forms\\MainForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T08:23:30.334Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+              "WhenOpened": "2026-03-10T08:23:30.334Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "fiz",
               "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\fiz.csproj",
               "RelativeDocumentMoniker": "fiz\\fiz.csproj",
               "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\fiz.csproj",
               "RelativeToolTip": "fiz\\fiz.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-03-10T08:00:51.522Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-10T08:00:51.522Z"
             }
           ]
         }

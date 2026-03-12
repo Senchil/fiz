@@ -60,6 +60,8 @@ namespace fiz
             textBoxPassword.Size = new Size(250, 35);
             textBoxPassword.Location = new Point((this.ClientSize.Width - 250) / 2, 175);
             textBoxPassword.Anchor = AnchorStyles.Top;
+            textBoxPassword.PasswordChar = '*';
+            textBoxPassword.ShowPasswordToggle = true;
 
             // Кнопка Войти
             buttonLogin = new RoundedButton();
