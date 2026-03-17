@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
@@ -313,6 +313,36 @@ namespace fiz.Data
             }
         }
 
+        public static void UpdateEvent(Event ev)
+        {
+            using (var conn = new SqliteConnection(ConnectionString))
+            {
+                conn.Open();
+                var cmd = new SqliteCommand(@"UPDATE Events SET Name = @Name, Date = @Date, Location = @Location,
+                                              Organizer = @Organizer, SportType = @SportType, ParticipantCount = @ParticipantCount
+                                              WHERE Id = @Id", conn);
+                cmd.Parameters.AddWithValue("@Id", ev.Id);
+                cmd.Parameters.AddWithValue("@Name", ev.Name);
+                cmd.Parameters.AddWithValue("@Date", ev.Date);
+                cmd.Parameters.AddWithValue("@Location", ev.Location);
+                cmd.Parameters.AddWithValue("@Organizer", ev.Organizer);
+                cmd.Parameters.AddWithValue("@SportType", ev.SportType);
+                cmd.Parameters.AddWithValue("@ParticipantCount", ev.ParticipantCount);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public static void DeleteEvent(int id)
+        {
+            using (var conn = new SqliteConnection(ConnectionString))
+            {
+                conn.Open();
+                var cmd = new SqliteCommand("DELETE FROM Events WHERE Id = @Id", conn);
+                cmd.Parameters.AddWithValue("@Id", id);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
         // ========== УЧАСТИЯ ==========
 
         public static List<Participation> GetAllParticipations()
@@ -357,6 +387,37 @@ namespace fiz.Data
                 cmd.Parameters.AddWithValue("@Rank", p.Rank);
                 cmd.Parameters.AddWithValue("@AddedBy", p.AddedBy);
                 cmd.Parameters.AddWithValue("@Date", p.Date);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public static void UpdateParticipation(Participation p)
+        {
+            using (var conn = new SqliteConnection(ConnectionString))
+            {
+                conn.Open();
+                var cmd = new SqliteCommand(@"UPDATE Participations SET EventName = @EventName, StudentName = @StudentName,
+                                              Result = @Result, Award = @Award, Rank = @Rank, AddedBy = @AddedBy, Date = @Date
+                                              WHERE Id = @Id", conn);
+                cmd.Parameters.AddWithValue("@Id", p.Id);
+                cmd.Parameters.AddWithValue("@EventName", p.EventName);
+                cmd.Parameters.AddWithValue("@StudentName", p.StudentName);
+                cmd.Parameters.AddWithValue("@Result", p.Result);
+                cmd.Parameters.AddWithValue("@Award", p.Award);
+                cmd.Parameters.AddWithValue("@Rank", p.Rank);
+                cmd.Parameters.AddWithValue("@AddedBy", p.AddedBy);
+                cmd.Parameters.AddWithValue("@Date", p.Date);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public static void DeleteParticipation(int id)
+        {
+            using (var conn = new SqliteConnection(ConnectionString))
+            {
+                conn.Open();
+                var cmd = new SqliteCommand("DELETE FROM Participations WHERE Id = @Id", conn);
+                cmd.Parameters.AddWithValue("@Id", id);
                 cmd.ExecuteNonQuery();
             }
         }

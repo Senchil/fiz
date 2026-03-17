@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using fiz.Models;
 
 namespace fiz.Data
@@ -62,6 +62,18 @@ namespace fiz.Data
         public static void AddEvent(Event ev) =>
             SQLiteHelper.AddEvent(ev);
 
+        /// <summary>
+        /// Обновить мероприятие
+        /// </summary>
+        public static void UpdateEvent(Event ev) =>
+            SQLiteHelper.UpdateEvent(ev);
+
+        /// <summary>
+        /// Удалить мероприятие по ID
+        /// </summary>
+        public static void DeleteEvent(int id) =>
+            SQLiteHelper.DeleteEvent(id);
+
         // ========== УЧАСТИЯ ==========
 
         /// <summary>
@@ -75,5 +87,17 @@ namespace fiz.Data
         /// </summary>
         public static void AddParticipation(Participation p) =>
             SQLiteHelper.AddParticipation(p);
+
+        /// <summary>
+        /// Обновить участие
+        /// </summary>
+        public static void UpdateParticipation(Participation p) =>
+            SQLiteHelper.UpdateParticipation(p);
+
+        /// <summary>
+        /// Удалить участие по ID
+        /// </summary>
+        public static void DeleteParticipation(int id) =>
+            SQLiteHelper.DeleteParticipation(id);
     }
 }

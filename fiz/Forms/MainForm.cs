@@ -2,6 +2,8 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using fiz.Data;
+using fiz.Forms;
+using fiz.Models;
 
 namespace fiz
 {
@@ -11,6 +13,10 @@ namespace fiz
         private Panel headerPanel;
         private Label welcomeLabel;
         private Button logoutButton;
+
+        private DataGridView? studentsGrid;
+        private DataGridView? eventsGrid;
+        private DataGridView? participationsGrid;
 
         public MainForm()
         {
@@ -98,12 +104,16 @@ namespace fiz
         private void InitializeStudentsTab(TabPage tab)
         {
             Button addBtn = CreateActionButton("Добавить студента", 10, 10, 180, 35);
-            addBtn.Click += (s, e) => OpenStudentForm();
+            addBtn.Click += (s, e) => AddStudent();
 
             Button editBtn = CreateActionButton("Редактировать", 200, 10, 150, 35);
+            editBtn.Click += (s, e) => EditSelectedStudent();
 
-            DataGridView grid = CreateGrid(10, 55, tab);
-            grid.Columns.AddRange(
+            Button deleteBtn = CreateActionButton("Удалить", 360, 10, 120, 35);
+            deleteBtn.Click += (s, e) => DeleteSelectedStudent();
+
+            studentsGrid = CreateGrid(10, 55, tab);
+            studentsGrid.Columns.AddRange(
                 new DataGridViewColumn[] {
                     CreateColumn("Id", "№", 40),
                     CreateColumn("FullName", "ФИО", 200),
@@ -114,9 +124,9 @@ namespace fiz
                     CreateColumn("ContactInfo", "Контактные данные", 150)
                 });
 
-            RefreshStudentGrid(grid);
+            RefreshStudentGrid(studentsGrid);
 
-            tab.Controls.AddRange(new Control[] { addBtn, editBtn, grid });
+            tab.Controls.AddRange(new Control[] { addBtn, editBtn, deleteBtn, studentsGrid });
         }
 
         private void RefreshStudentGrid(DataGridView grid)
@@ -133,12 +143,16 @@ namespace fiz
         private void InitializeEventsTab(TabPage tab)
         {
             Button addBtn = CreateActionButton("Добавить мероприятие", 10, 10, 200, 35);
-            addBtn.Click += (s, e) => OpenEventForm();
+            addBtn.Click += (s, e) => AddEvent();
 
             Button editBtn = CreateActionButton("Редактировать", 220, 10, 150, 35);
+            editBtn.Click += (s, e) => EditSelectedEvent();
 
-            DataGridView grid = CreateGrid(10, 55, tab);
-            grid.Columns.AddRange(
+            Button deleteBtn = CreateActionButton("Удалить", 380, 10, 120, 35);
+            deleteBtn.Click += (s, e) => DeleteSelectedEvent();
+
+            eventsGrid = CreateGrid(10, 55, tab);
+            eventsGrid.Columns.AddRange(
                 new DataGridViewColumn[] {
                     CreateColumn("Id", "№", 40),
                     CreateColumn("Name", "Название", 200),
@@ -149,9 +163,9 @@ namespace fiz
                     CreateColumn("SportType", "Вид спорта", 120)
                 });
 
-            RefreshEventGrid(grid);
+            RefreshEventGrid(eventsGrid);
 
-            tab.Controls.AddRange(new Control[] { addBtn, editBtn, grid });
+            tab.Controls.AddRange(new Control[] { addBtn, editBtn, deleteBtn, eventsGrid });
         }
 
         private void RefreshEventGrid(DataGridView grid)
@@ -168,12 +182,16 @@ namespace fiz
         private void InitializeParticipationsTab(TabPage tab)
         {
             Button addBtn = CreateActionButton("Добавить участие", 10, 10, 180, 35);
-            addBtn.Click += (s, e) => OpenParticipationForm();
+            addBtn.Click += (s, e) => AddParticipation();
 
             Button editBtn = CreateActionButton("Редактировать", 200, 10, 150, 35);
+            editBtn.Click += (s, e) => EditSelectedParticipation();
 
-            DataGridView grid = CreateGrid(10, 55, tab);
-            grid.Columns.AddRange(
+            Button deleteBtn = CreateActionButton("Удалить", 360, 10, 120, 35);
+            deleteBtn.Click += (s, e) => DeleteSelectedParticipation();
+
+            participationsGrid = CreateGrid(10, 55, tab);
+            participationsGrid.Columns.AddRange(
                 new DataGridViewColumn[] {
                     CreateColumn("Id", "№", 40),
                     CreateColumn("EventName", "Мероприятие", 150),
@@ -185,9 +203,9 @@ namespace fiz
                     CreateColumn("Date", "Дата", 100)
                 });
 
-            RefreshParticipationGrid(grid);
+            RefreshParticipationGrid(participationsGrid);
 
-            tab.Controls.AddRange(new Control[] { addBtn, editBtn, grid });
+            tab.Controls.AddRange(new Control[] { addBtn, editBtn, deleteBtn, participationsGrid });
         }
 
         private void RefreshParticipationGrid(DataGridView grid)
@@ -242,15 +260,118 @@ namespace fiz
             };
         }
 
-        // ===== ОБРАБОТЧИКИ =====
-        private void OpenStudentForm() =>
-            MessageBox.Show("Форма добавления студента", "Инфо", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        // ===== ОБРАБОТЧИКИ / CRUD =====
+        private void AddStudent()
+        {
+            if (!CrudDialogs.TryEditStudent(this, null, out var s)) return;
+            Database.AddStudent(s);
+            if (studentsGrid != null) RefreshStudentGrid(studentsGrid);
+        }
 
-        private void OpenEventForm() =>
-            MessageBox.Show("Форма добавления мероприятия", "Инфо", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        private void EditSelectedStudent()
+        {
+            if (studentsGrid == null || studentsGrid.SelectedRows.Count == 0) return;
+            var row = studentsGrid.SelectedRows[0];
+            var s = new Student
+            {
+                Id = Convert.ToInt32(row.Cells[0].Value),
+                FullName = Convert.ToString(row.Cells[1].Value) ?? "",
+                Faculty = Convert.ToString(row.Cells[2].Value) ?? "",
+                Group = Convert.ToString(row.Cells[3].Value) ?? "",
+                StudentCardNumber = Convert.ToString(row.Cells[4].Value) ?? "",
+                BirthDate = Convert.ToString(row.Cells[5].Value) ?? "",
+                ContactInfo = Convert.ToString(row.Cells[6].Value) ?? ""
+            };
 
-        private void OpenParticipationForm() =>
-            MessageBox.Show("Форма добавления участия", "Инфо", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (!CrudDialogs.TryEditStudent(this, s, out var edited)) return;
+            Database.UpdateStudent(edited);
+            RefreshStudentGrid(studentsGrid);
+        }
+
+        private void DeleteSelectedStudent()
+        {
+            if (studentsGrid == null || studentsGrid.SelectedRows.Count == 0) return;
+            var id = Convert.ToInt32(studentsGrid.SelectedRows[0].Cells[0].Value);
+            if (MessageBox.Show(this, "Удалить выбранного студента?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+            Database.DeleteStudent(id);
+            RefreshStudentGrid(studentsGrid);
+        }
+
+        private void AddEvent()
+        {
+            if (!CrudDialogs.TryEditEvent(this, null, out var ev)) return;
+            Database.AddEvent(ev);
+            if (eventsGrid != null) RefreshEventGrid(eventsGrid);
+        }
+
+        private void EditSelectedEvent()
+        {
+            if (eventsGrid == null || eventsGrid.SelectedRows.Count == 0) return;
+            var row = eventsGrid.SelectedRows[0];
+            var ev = new Event
+            {
+                Id = Convert.ToInt32(row.Cells[0].Value),
+                Name = Convert.ToString(row.Cells[1].Value) ?? "",
+                Date = Convert.ToString(row.Cells[2].Value) ?? "",
+                Location = Convert.ToString(row.Cells[3].Value) ?? "",
+                Organizer = Convert.ToString(row.Cells[4].Value) ?? "",
+                ParticipantCount = Convert.ToInt32(row.Cells[5].Value),
+                SportType = Convert.ToString(row.Cells[6].Value) ?? ""
+            };
+
+            if (!CrudDialogs.TryEditEvent(this, ev, out var edited)) return;
+            Database.UpdateEvent(edited);
+            RefreshEventGrid(eventsGrid);
+        }
+
+        private void DeleteSelectedEvent()
+        {
+            if (eventsGrid == null || eventsGrid.SelectedRows.Count == 0) return;
+            var id = Convert.ToInt32(eventsGrid.SelectedRows[0].Cells[0].Value);
+            if (MessageBox.Show(this, "Удалить выбранное мероприятие?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+            Database.DeleteEvent(id);
+            RefreshEventGrid(eventsGrid);
+        }
+
+        private void AddParticipation()
+        {
+            if (!CrudDialogs.TryEditParticipation(this, null, out var p)) return;
+            Database.AddParticipation(p);
+            if (participationsGrid != null) RefreshParticipationGrid(participationsGrid);
+        }
+
+        private void EditSelectedParticipation()
+        {
+            if (participationsGrid == null || participationsGrid.SelectedRows.Count == 0) return;
+            var row = participationsGrid.SelectedRows[0];
+            var p = new Participation
+            {
+                Id = Convert.ToInt32(row.Cells[0].Value),
+                EventName = Convert.ToString(row.Cells[1].Value) ?? "",
+                StudentName = Convert.ToString(row.Cells[2].Value) ?? "",
+                Result = Convert.ToString(row.Cells[3].Value) ?? "",
+                Award = Convert.ToString(row.Cells[4].Value) ?? "",
+                Rank = Convert.ToString(row.Cells[5].Value) ?? "",
+                AddedBy = Convert.ToString(row.Cells[6].Value) ?? "",
+                Date = Convert.ToString(row.Cells[7].Value) ?? ""
+            };
+
+            if (!CrudDialogs.TryEditParticipation(this, p, out var edited)) return;
+            Database.UpdateParticipation(edited);
+            RefreshParticipationGrid(participationsGrid);
+        }
+
+        private void DeleteSelectedParticipation()
+        {
+            if (participationsGrid == null || participationsGrid.SelectedRows.Count == 0) return;
+            var id = Convert.ToInt32(participationsGrid.SelectedRows[0].Cells[0].Value);
+            if (MessageBox.Show(this, "Удалить выбранное участие?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+            Database.DeleteParticipation(id);
+            RefreshParticipationGrid(participationsGrid);
+        }
 
         private void LogoutButton_Click(object sender, EventArgs e)
         {
