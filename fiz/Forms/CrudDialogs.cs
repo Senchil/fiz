@@ -39,7 +39,7 @@ namespace fiz.Forms
             s.Faculty = tbFaculty.Text.Trim();
             s.Group = tbGroup.Text.Trim();
             s.StudentCardNumber = tbCard.Text.Trim();
-            s.BirthDate = dpBirth.Value.ToString("dd.MM.yyyy");
+            s.BirthDate = dpBirth.Value;
             s.ContactInfo = tbContact.Text.Trim();
 
             result = s;
@@ -75,7 +75,7 @@ namespace fiz.Forms
             }
 
             ev.Name = name;
-            ev.Date = dpDate.Value.ToString("dd.MM.yyyy");
+            ev.Date = dpDate.Value;
             ev.Location = tbLocation.Text.Trim();
             ev.Organizer = tbOrganizer.Text.Trim();
             ev.SportType = tbSport.Text.Trim();
@@ -121,13 +121,11 @@ namespace fiz.Forms
             p.Award = tbAward.Text.Trim();
             p.Rank = tbRank.Text.Trim();
             p.AddedBy = tbAddedBy.Text.Trim();
-            p.Date = dpDate.Value.ToString("dd.MM.yyyy");
+            p.Date = dpDate.Value;
 
             result = p;
             return true;
         }
-
-        // ===== БАЗОВЫЙ ШАБЛОН ОКНА В СТИЛЕ АВТОРИЗАЦИИ/РЕГИСТРАЦИИ =====
 
         private static Form CreateBaseForm(string title, string sectionTitle)
         {
@@ -215,7 +213,6 @@ namespace fiz.Forms
             if (!string.IsNullOrEmpty(value))
             {
                 tb.Text = value;
-                tb.ForeColor = Color.Black;
             }
 
             layout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
@@ -226,7 +223,7 @@ namespace fiz.Forms
             return tb;
         }
 
-        private static DateTimePicker AddDateRow(TableLayoutPanel layout, string labelText, string value)
+        private static DateTimePicker AddDateRow(TableLayoutPanel layout, string labelText, DateTime? value)
         {
             var label = new Label
             {
@@ -240,13 +237,9 @@ namespace fiz.Forms
             var picker = new DateTimePicker
             {
                 Format = DateTimePickerFormat.Short,
-                Width = 360
+                Width = 360,
+                Value = value ?? DateTime.Today
             };
-
-            if (DateTime.TryParse(value, out var parsed))
-            {
-                picker.Value = parsed;
-            }
 
             layout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
             layout.Controls.Add(label);
@@ -323,4 +316,3 @@ namespace fiz.Forms
         }
     }
 }
-
