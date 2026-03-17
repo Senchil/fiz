@@ -135,7 +135,7 @@ namespace fiz
             foreach (var s in Database.GetStudents())
             {
                 grid.Rows.Add(s.Id, s.FullName, s.Faculty, s.Group,
-                    s.StudentCardNumber, s.BirthDate, s.ContactInfo);
+                    s.StudentCardNumber, s.BirthDate.ToString("dd.MM.yyyy"), s.ContactInfo);
             }
         }
 
@@ -173,7 +173,7 @@ namespace fiz
             grid.Rows.Clear();
             foreach (var ev in Database.GetEvents())
             {
-                grid.Rows.Add(ev.Id, ev.Name, ev.Date, ev.Location,
+                grid.Rows.Add(ev.Id, ev.Name, ev.Date.ToString("dd.MM.yyyy"), ev.Location,
                     ev.Organizer, ev.ParticipantCount, ev.SportType);
             }
         }
@@ -214,7 +214,7 @@ namespace fiz
             foreach (var p in Database.GetParticipations())
             {
                 grid.Rows.Add(p.Id, p.EventName, p.StudentName, p.Result,
-                    p.Award, p.Rank, p.AddedBy, p.Date);
+                    p.Award, p.Rank, p.AddedBy, p.Date.ToString("dd.MM.yyyy"));
             }
         }
 
@@ -279,7 +279,7 @@ namespace fiz
                 Faculty = Convert.ToString(row.Cells[2].Value) ?? "",
                 Group = Convert.ToString(row.Cells[3].Value) ?? "",
                 StudentCardNumber = Convert.ToString(row.Cells[4].Value) ?? "",
-                BirthDate = Convert.ToString(row.Cells[5].Value) ?? "",
+                BirthDate = DateTime.Parse(Convert.ToString(row.Cells[5].Value) ?? DateTime.Now.ToString("dd.MM.yyyy")),
                 ContactInfo = Convert.ToString(row.Cells[6].Value) ?? ""
             };
 
@@ -313,7 +313,7 @@ namespace fiz
             {
                 Id = Convert.ToInt32(row.Cells[0].Value),
                 Name = Convert.ToString(row.Cells[1].Value) ?? "",
-                Date = Convert.ToString(row.Cells[2].Value) ?? "",
+                Date = DateTime.Parse(Convert.ToString(row.Cells[2].Value) ?? DateTime.Now.ToString("dd.MM.yyyy")),
                 Location = Convert.ToString(row.Cells[3].Value) ?? "",
                 Organizer = Convert.ToString(row.Cells[4].Value) ?? "",
                 ParticipantCount = Convert.ToInt32(row.Cells[5].Value),
@@ -355,7 +355,7 @@ namespace fiz
                 Award = Convert.ToString(row.Cells[4].Value) ?? "",
                 Rank = Convert.ToString(row.Cells[5].Value) ?? "",
                 AddedBy = Convert.ToString(row.Cells[6].Value) ?? "",
-                Date = Convert.ToString(row.Cells[7].Value) ?? ""
+                Date = DateTime.Parse(Convert.ToString(row.Cells[7].Value) ?? DateTime.Now.ToString("dd.MM.yyyy"))
             };
 
             if (!CrudDialogs.TryEditParticipation(this, p, out var edited)) return;

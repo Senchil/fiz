@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,7 +11,7 @@ namespace fiz.Models
         public string Faculty { get; set; }
         public string Group { get; set; }
         public string StudentCardNumber { get; set; }
-        public string BirthDate { get; set; }
+        public DateTime BirthDate { get; set; }
         public string ContactInfo { get; set; }
     }
 }

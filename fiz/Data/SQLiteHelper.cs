@@ -211,7 +211,7 @@ namespace fiz.Data
                             Faculty = reader["Faculty"].ToString(),
                             Group = reader["Group"].ToString(),
                             StudentCardNumber = reader["StudentCardNumber"].ToString(),
-                            BirthDate = reader["BirthDate"].ToString(),
+                            BirthDate = DateTime.Parse(reader["BirthDate"].ToString()),
                             ContactInfo = reader["ContactInfo"].ToString()
                         });
                     }
@@ -231,7 +231,7 @@ namespace fiz.Data
                 cmd.Parameters.AddWithValue("@Faculty", s.Faculty);
                 cmd.Parameters.AddWithValue("@Group", s.Group);
                 cmd.Parameters.AddWithValue("@StudentCardNumber", s.StudentCardNumber);
-                cmd.Parameters.AddWithValue("@BirthDate", s.BirthDate);
+                cmd.Parameters.AddWithValue("@BirthDate", s.BirthDate.ToString("dd.MM.yyyy"));
                 cmd.Parameters.AddWithValue("@ContactInfo", s.ContactInfo);
                 cmd.ExecuteNonQuery();
             }
@@ -250,7 +250,7 @@ namespace fiz.Data
                 cmd.Parameters.AddWithValue("@Faculty", s.Faculty);
                 cmd.Parameters.AddWithValue("@Group", s.Group);
                 cmd.Parameters.AddWithValue("@StudentCardNumber", s.StudentCardNumber);
-                cmd.Parameters.AddWithValue("@BirthDate", s.BirthDate);
+                cmd.Parameters.AddWithValue("@BirthDate", s.BirthDate.ToString("dd.MM.yyyy"));
                 cmd.Parameters.AddWithValue("@ContactInfo", s.ContactInfo);
                 cmd.ExecuteNonQuery();
             }
@@ -284,7 +284,7 @@ namespace fiz.Data
                         {
                             Id = Convert.ToInt32(reader["Id"]),
                             Name = reader["Name"].ToString(),
-                            Date = reader["Date"].ToString(),
+                            Date = DateTime.Parse(reader["Date"].ToString()),
                             Location = reader["Location"].ToString(),
                             Organizer = reader["Organizer"].ToString(),
                             SportType = reader["SportType"].ToString(),
@@ -304,7 +304,7 @@ namespace fiz.Data
                 var cmd = new SqliteCommand(@"INSERT INTO Events (Name, Date, Location, Organizer, SportType, ParticipantCount) 
                                               VALUES (@Name, @Date, @Location, @Organizer, @SportType, @ParticipantCount)", conn);
                 cmd.Parameters.AddWithValue("@Name", ev.Name);
-                cmd.Parameters.AddWithValue("@Date", ev.Date);
+                cmd.Parameters.AddWithValue("@Date", ev.Date.ToString("dd.MM.yyyy"));
                 cmd.Parameters.AddWithValue("@Location", ev.Location);
                 cmd.Parameters.AddWithValue("@Organizer", ev.Organizer);
                 cmd.Parameters.AddWithValue("@SportType", ev.SportType);
@@ -323,7 +323,7 @@ namespace fiz.Data
                                               WHERE Id = @Id", conn);
                 cmd.Parameters.AddWithValue("@Id", ev.Id);
                 cmd.Parameters.AddWithValue("@Name", ev.Name);
-                cmd.Parameters.AddWithValue("@Date", ev.Date);
+                cmd.Parameters.AddWithValue("@Date", ev.Date.ToString("dd.MM.yyyy"));
                 cmd.Parameters.AddWithValue("@Location", ev.Location);
                 cmd.Parameters.AddWithValue("@Organizer", ev.Organizer);
                 cmd.Parameters.AddWithValue("@SportType", ev.SportType);
@@ -365,7 +365,7 @@ namespace fiz.Data
                             Award = reader["Award"].ToString(),
                             Rank = reader["Rank"].ToString(),
                             AddedBy = reader["AddedBy"].ToString(),
-                            Date = reader["Date"].ToString()
+                            Date = DateTime.Parse(reader["Date"].ToString())
                         });
                     }
                 }
@@ -386,7 +386,7 @@ namespace fiz.Data
                 cmd.Parameters.AddWithValue("@Award", p.Award);
                 cmd.Parameters.AddWithValue("@Rank", p.Rank);
                 cmd.Parameters.AddWithValue("@AddedBy", p.AddedBy);
-                cmd.Parameters.AddWithValue("@Date", p.Date);
+                cmd.Parameters.AddWithValue("@Date", p.Date.ToString("dd.MM.yyyy"));
                 cmd.ExecuteNonQuery();
             }
         }
@@ -406,7 +406,7 @@ namespace fiz.Data
                 cmd.Parameters.AddWithValue("@Award", p.Award);
                 cmd.Parameters.AddWithValue("@Rank", p.Rank);
                 cmd.Parameters.AddWithValue("@AddedBy", p.AddedBy);
-                cmd.Parameters.AddWithValue("@Date", p.Date);
+                cmd.Parameters.AddWithValue("@Date", p.Date.ToString("dd.MM.yyyy"));
                 cmd.ExecuteNonQuery();
             }
         }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -13,6 +13,6 @@ namespace fiz.Models
         public string Award { get; set; }
         public string Rank { get; set; }
         public string AddedBy { get; set; }
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
     }
 }
