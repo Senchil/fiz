@@ -238,7 +238,9 @@ namespace fiz.Forms
             {
                 Format = DateTimePickerFormat.Short,
                 Width = 360,
-                Value = value ?? DateTime.Today
+                Value = (value.HasValue && value.Value > DateTimePicker.MinimumDateTime)
+                        ? value.Value
+                        : DateTime.Today
             };
 
             layout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
