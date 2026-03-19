@@ -1,23 +1,23 @@
-.vs/
-**/.vs/
+# .vs/
+# **/.vs/
 
-bin/
-obj/
-**/bin/
-**/obj/
+# bin/
+# obj/
+# **/bin/
+# **/obj/
 
-*.user
-*.suo
-*.userosscache
-*.sln.docstates
+# *.user
+# *.suo
+# *.userosscache
+# *.sln.docstates
 
-*.pdb
-*.dll
-*.exe
-*.cache
+# *.pdb
+# *.dll
+# *.exe
+# *.cache
 
-TestResults/
-**/TestResults/
+# TestResults/
+# **/TestResults/
 
-*.log
-*.tmp
+# *.log
+# *.tmp
