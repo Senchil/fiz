@@ -1,0 +1,153 @@
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.IO;
+using System.Text;
+using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using OfficeOpenXml;
+
+namespace fiz.Forms
+{
+    internal class Reports
+    {
+
+
+        //подключение
+        private string connectionString = "";
+
+
+
+        //1. Отчеты &quot;Общее количество уникальных студентов за период&quot;:
+        private void Create_Report_UniqueStudents(DateTime StartDate, DateTime EndDate,string query)
+        {
+
+        }
+        //2. Детализированный отчет по участию студентов (с фильтрацией по факультету, мероприятию):
+        private void Create_Report_StudentsEvent(string Event,string Faculty, string query)
+        {
+
+        }
+        /*3. Отчет по разрядам студентов:  o Действие: Сформировать отчет по всем разрядам, затем отфильтровать по конкретному виду спорта или разряду.
+        o Ожидаемый результат: Отображается список студентов с их
+        спортивными разрядами, датами присвоения, видами спорта.*/
+        private void Create_Report_(string Sport, string Category, string query)
+        {
+
+        }
+        //Для избежания ошибок при работе с .csv файлами, необходимо экранировать , /n "
+        private string EscapeCsvField(string field)
+        {
+            if (string.IsNullOrEmpty(field))
+                return "";
+
+            // Если поле содержит запятую, кавычку или перенос строки, оборачиваем в кавычки
+            if ((field.Contains(",") || field.Contains("\"") || field.Contains("\n")) && (!field.StartsWith("\"") && !field.EndsWith("\"")))
+            {
+                field = field.Replace("\"", "\"\"");
+                return $"\"{field}\"";
+            }
+            return field;
+        }
+        
+        private void Report_To_cvs(string query)
+        {
+            string FilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "report_{DateTime.Now:yyyyMMdd_HHmmss}.csv");
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            using (StreamWriter writer = new StreamWriter(FilePath, false, Encoding.UTF8))
+                            {
+                                // Записываем заголовки
+                                for (int i = 0; i < reader.FieldCount; i++)
+                                {
+                                    writer.Write(EscapeCsvField(reader.GetName(i)));
+                                    if (i < reader.FieldCount - 1)
+                                        writer.Write(",");
+                                }
+                                writer.WriteLine();
+
+                                // Записываем данные
+                                while (reader.Read())
+                                {
+                                    for (int i = 0; i < reader.FieldCount; i++)
+                                    {
+                                        string value = reader.IsDBNull(i) ? "" : reader.GetValue(i).ToString();
+                                        writer.Write(EscapeCsvField(value));
+                                        if (i < reader.FieldCount - 1)
+                                            writer.Write(",");
+                                    }
+                                    writer.WriteLine();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при экспорте в формат .cvs: {ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        r
+        private void Report_To_xlsx(string query)
+        {
+            string FilePath = FilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "report_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx");
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        DataTable dt = new DataTable();
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                        {
+                            adapter.Fill(dt);
+                        }
+
+                        using (ExcelPackage package = new ExcelPackage())
+                        {
+                            ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Report");
+
+                            // Записываем заголовки
+                            for (int i = 0; i < dt.Columns.Count; i++)
+                            {
+                                worksheet.Cells[1, i + 1].Value = dt.Columns[i].ColumnName;
+                                worksheet.Cells[1, i + 1].Style.Font.Bold = true;
+                                worksheet.Cells[1, i + 1].Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+                            }
+
+                            // Записываем данные
+                            for (int i = 0; i < dt.Rows.Count; i++)
+                            {
+                                for (int j = 0; j < dt.Columns.Count; j++)
+                                {
+                                    worksheet.Cells[i + 2, j + 1].Value = dt.Rows[i][j]?.ToString();
+                                }
+                            }
+
+                            // Сохраняем файл
+                            FileInfo fileInfo = new FileInfo(FilePath);
+                            package.SaveAs(fileInfo);
+                            System.Diagnostics.Process.Start("explorer.exe", $"/select, \"{fileInfo.FullName}\"");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при экспорте в формат .xlsx: {ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+    }
+}
