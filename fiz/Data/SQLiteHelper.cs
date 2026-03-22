@@ -309,9 +309,42 @@ namespace fiz.Data
             using (var conn = new SqliteConnection(ConnectionString))
             {
                 conn.Open();
-                var cmd = new SqliteCommand("DELETE FROM Students WHERE Id = @Id", conn);
-                cmd.Parameters.AddWithValue("@Id", id);
-                cmd.ExecuteNonQuery();
+
+                using (var transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        var cmdDeleteRanks = new SqliteCommand(
+                            "DELETE FROM StudentRanks WHERE StudentId = @Id", conn, transaction);
+                        cmdDeleteRanks.Parameters.AddWithValue("@Id", id);
+                        cmdDeleteRanks.ExecuteNonQuery();
+
+                        var cmdGetName = new SqliteCommand(
+                            "SELECT FullName FROM Students WHERE Id = @Id", conn, transaction);
+                        cmdGetName.Parameters.AddWithValue("@Id", id);
+                        var studentName = cmdGetName.ExecuteScalar()?.ToString();
+
+                        if (!string.IsNullOrEmpty(studentName))
+                        {
+                            var cmdDeleteParticipations = new SqliteCommand(
+                               "DELETE FROM Participations WHERE StudentName = @Name", conn, transaction);
+                            cmdDeleteParticipations.Parameters.AddWithValue("@Name", studentName);
+                            cmdDeleteParticipations.ExecuteNonQuery();
+                        }
+
+                        var cmdDeleteStudent = new SqliteCommand(
+                            "DELETE FROM Students WHERE Id = @Id", conn, transaction);
+                        cmdDeleteStudent.Parameters.AddWithValue("@Id", id);
+                        cmdDeleteStudent.ExecuteNonQuery();
+
+                        transaction.Commit();
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
+                }
             }
         }
 

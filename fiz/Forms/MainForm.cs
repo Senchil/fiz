@@ -122,29 +122,40 @@ namespace fiz
             Label searchLabel = new Label
             {
                 Text = "Поиск:",
-                Location = new Point(5, 12),
-                AutoSize = true
+                Location = new Point(0, 12),
+                AutoSize = true,
+                Font = new Font("Microsoft Sans Serif", 10F),
+                ForeColor = Color.FromArgb(60, 60, 60)
             };
 
             searchBox = new TextBox
             {
                 Location = new Point(55, 8),
                 Width = 200,
-                Font = new Font("Microsoft Sans Serif", 10F)
+                Font = new Font("Microsoft Sans Serif", 10F),
+                BackColor = Color.White,
+                ForeColor = Color.FromArgb(60, 60, 60),
+                BorderStyle = BorderStyle.FixedSingle
             };
 
             Label facultyLabel = new Label
             {
                 Text = "Факультет:",
-                Location = new Point(270, 12),
-                AutoSize = true
+                Location = new Point(258, 12),
+                AutoSize = true,
+                Font = new Font("Microsoft Sans Serif", 10F),
+                ForeColor = Color.FromArgb(60, 60, 60)
             };
 
             facultyFilter = new ComboBox
             {
                 Location = new Point(345, 8),
                 Width = 150,
-                DropDownStyle = ComboBoxStyle.DropDownList
+                DropDownStyle = ComboBoxStyle.DropDownList,
+                Font = new Font("Microsoft Sans Serif", 10F),
+                BackColor = Color.White,
+                ForeColor = Color.FromArgb(60, 60, 60),
+                FlatStyle = FlatStyle.Flat
             };
             facultyFilter.Items.Add("Все");
 
@@ -560,14 +571,20 @@ namespace fiz
             grid.Columns.Add("Rank", "Разряд");
             grid.Columns.Add("Date", "Дата присвоения");
 
-            var ranks = Database.GetStudentRanks(studentId);
-            var allRanks = Database.GetRanks();
-
-            foreach (var r in ranks)
+            void LoadRanks()
             {
-                var rank = allRanks.FirstOrDefault(rk => rk.Id == r.RankId);
-                grid.Rows.Add(r.Id, r.SportType, rank?.Name, r.AssignedDate.ToString("dd.MM.yyyy"));
+                grid.Rows.Clear();
+                var ranks = Database.GetStudentRanks(studentId);
+                var allRanks = Database.GetRanks();
+
+                foreach (var r in ranks)
+                {
+                    var rank = allRanks.FirstOrDefault(rk => rk.Id == r.RankId);
+                    grid.Rows.Add(r.Id, r.SportType, rank?.Name ?? "", r.AssignedDate.ToString("dd.MM.yyyy"));
+                }
             }
+
+            LoadRanks();
 
             // Кнопка добавить
             Button addBtn = new Button
@@ -577,9 +594,14 @@ namespace fiz
                 Height = 40,
                 BackColor = Color.FromArgb(32, 178, 170),
                 ForeColor = Color.White,
-                FlatStyle = FlatStyle.Flat
+                FlatStyle = FlatStyle.Flat,
+                Cursor = Cursors.Hand
             };
-            addBtn.Click += (s, e) => AddRankToStudent(studentId);
+
+            addBtn.Click += (s, e) =>
+            {
+                AddRankToStudent(studentId, grid, LoadRanks);
+            };
 
             Button deleteBtn = new Button
             {
@@ -587,31 +609,70 @@ namespace fiz
                 Dock = DockStyle.Bottom,
                 Height = 40,
                 BackColor = Color.LightCoral,
-                FlatStyle = FlatStyle.Flat
+                FlatStyle = FlatStyle.Flat,
+                Cursor = Cursors.Hand
             };
+
             deleteBtn.Click += (s, e) =>
             {
                 if (grid.SelectedRows.Count > 0)
                 {
-                    int rankId = Convert.ToInt32(grid.SelectedRows[0].Cells[0].Value);
-                    Database.DeleteStudentRank(rankId);
-                    MessageBox.Show("Разряд удалён");
-                    form.Close();
-                    ShowStudentRanks();
+                    try
+                    {
+                        var cellValue = grid.SelectedRows[0].Cells[0].Value;
+                        if (cellValue == null)
+                        {
+                            MessageBox.Show("Ошибка: не удалось получить ID записи", "Ошибка",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        int rankId = Convert.ToInt32(cellValue);
+
+                        var result = MessageBox.Show(
+                            "Вы уверены, что хотите удалить этот разряд?",
+                            "Подтверждение",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            Database.DeleteStudentRank(rankId);
+                            RefreshStudentGrid(studentsGrid);
+                            MessageBox.Show("Разряд удалён", "Успех",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            form.Close();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Ошибка при удалении: {ex.Message}", "Ошибка",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Выберите строку для удаления", "Внимание",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             };
+            var panel = new Panel
+            {
+                Dock = DockStyle.Bottom,
+                Height = 80
+            };
 
-            var panel = new Panel { Dock = DockStyle.Bottom, Height = 80 };
             panel.Controls.Add(addBtn);
             panel.Controls.Add(deleteBtn);
             deleteBtn.Location = new Point(0, 40);
 
             form.Controls.Add(grid);
             form.Controls.Add(panel);
+
             form.ShowDialog();
         }
 
-        private void AddRankToStudent(int studentId)
+        private void AddRankToStudent(int studentId, DataGridView grid, Action loadRanks)
         {
             using var form = new Form
             {
@@ -672,18 +733,31 @@ namespace fiz
             form.Controls.Add(okBtn);
             form.Controls.Add(cancelBtn);
 
+
             if (form.ShowDialog() == DialogResult.OK && cbSport.SelectedItem != null && cbRank.SelectedItem != null)
             {
-                var rank = ranks.First(r => r.Name == cbRank.SelectedItem.ToString());
-                var sr = new StudentRank
+                try
                 {
-                    StudentId = studentId,
-                    RankId = rank.Id,
-                    SportType = cbSport.SelectedItem.ToString(),
-                    AssignedDate = dtpDate.Value
-                };
-                Database.AddStudentRank(sr);
-                MessageBox.Show("Разряд добавлен");
+                    var rank = ranks.First(r => r.Name == cbRank.SelectedItem.ToString());
+                    var sr = new StudentRank
+                    {
+                        StudentId = studentId,
+                        RankId = rank.Id,
+                        SportType = cbSport.SelectedItem.ToString(),
+                        AssignedDate = dtpDate.Value
+                    };
+                    Database.AddStudentRank(sr);
+
+                    grid.Rows.Clear();
+                    loadRanks();
+                    RefreshStudentGrid(studentsGrid);
+
+                    MessageBox.Show("Разряд добавлен", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }
