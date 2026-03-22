@@ -15,7 +15,6 @@ namespace fiz.Models
         public int ParticipantCount { get; set; }
         public string Level { get; set; }
         public string EventType { get; set; }
-        public bool IsOnBase { get; set; }
         public bool IsOfficial { get; set; }
     }
 }

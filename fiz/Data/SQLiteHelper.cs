@@ -63,7 +63,6 @@ namespace fiz.Data
                         ParticipantCount INTEGER NOT NULL,
                         Level TEXT,
                         EventType TEXT,
-                        IsOnBase INTEGER NOT NULL DEFAULT 0,
                         IsOfficial INTEGER NOT NULL DEFAULT 0
                     )",
                     @"CREATE TABLE IF NOT EXISTS Participations (
@@ -157,7 +156,6 @@ namespace fiz.Data
                 }
             }
         }
-
         private static void InsertTestData()
         {
             using (var conn = new SqliteConnection(ConnectionString))
@@ -170,24 +168,23 @@ namespace fiz.Data
                 if (count == 0)
                 {
                     cmd.CommandText = @"INSERT INTO Students (FullName, Faculty, ""Group"", StudentCardNumber, BirthDate, ContactInfo) 
-                                        VALUES ('Черкасский Данил Сергеевич', 'ФМИЗ', 'ИИ-23', '1337', '04.02.2005', 'danil@gmail.com')";
+                                VALUES ('Черкасский Данил Сергеевич', 'ФМИЗ', 'ИИ-23', '1337', '04.02.2005', 'danil@gmail.com')";
                     cmd.ExecuteNonQuery();
 
                     cmd.CommandText = @"INSERT INTO Students (FullName, Faculty, ""Group"", StudentCardNumber, BirthDate, ContactInfo) 
-                                        VALUES ('Петров Петр Петрович', 'ФИ', 'ИО-21', '1338', '31.01.2003', '88005553535')";
+                                VALUES ('Петров Петр Петрович', 'ФИ', 'ИО-21', '1338', '31.01.2003', '88005553535')";
                     cmd.ExecuteNonQuery();
 
-                    cmd.CommandText = @"INSERT INTO Events (Name, Date, Location, Organizer, SportType, ParticipantCount, Level, EventType, IsOnBase, IsOfficial) 
-                                        VALUES ('Кубок КГПИ', '27.02.2026', 'СК ''Олимп''', 'Факультетский', 'Плавание', 25, 'Региональный', 'Обычное', 1, 1)";
+                    cmd.CommandText = @"INSERT INTO Events (Name, Date, Location, Organizer, SportType, ParticipantCount, Level, EventType, IsOfficial) 
+                                VALUES ('Кубок КГПИ', '27.02.2026', 'СК ''Олимп''', 'Факультетский', 'Плавание', 25, 'Региональный', 'Обычное', 1)";
                     cmd.ExecuteNonQuery();
 
                     cmd.CommandText = @"INSERT INTO Participations (EventName, StudentName, Result, Award, Rank, AddedBy, Date) 
-                                        VALUES ('Кубок КГПИ', 'Черкасский Данил Сергеевич', 'Призовое место', 'Медаль', '1-ый разряд', 'admin', '05.03.2026')";
+                                VALUES ('Кубок КГПИ', 'Черкасский Данил Сергеевич', 'Призовое место', 'Медаль', '1-ый разряд', 'admin', '05.03.2026')";
                     cmd.ExecuteNonQuery();
                 }
             }
         }
-
         public static User AuthenticateUser(string login, string password)
         {
             using (var conn = new SqliteConnection(ConnectionString))
@@ -340,7 +337,6 @@ namespace fiz.Data
                             ParticipantCount = Convert.ToInt32(reader["ParticipantCount"]),
                             Level = reader["Level"]?.ToString(),
                             EventType = reader["EventType"]?.ToString(),
-                            IsOnBase = Convert.ToInt32(reader["IsOnBase"]) == 1,
                             IsOfficial = Convert.ToInt32(reader["IsOfficial"]) == 1
                         });
                     }
@@ -354,8 +350,8 @@ namespace fiz.Data
             using (var conn = new SqliteConnection(ConnectionString))
             {
                 conn.Open();
-                var cmd = new SqliteCommand(@"INSERT INTO Events (Name, Date, Location, Organizer, SportType, ParticipantCount, Level, EventType, IsOnBase, IsOfficial) 
-                                              VALUES (@Name, @Date, @Location, @Organizer, @SportType, @ParticipantCount, @Level, @EventType, @IsOnBase, @IsOfficial)", conn);
+                var cmd = new SqliteCommand(@"INSERT INTO Events (Name, Date, Location, Organizer, SportType, ParticipantCount, Level, EventType, IsOfficial) 
+                                      VALUES (@Name, @Date, @Location, @Organizer, @SportType, @ParticipantCount, @Level, @EventType, @IsOfficial)", conn);
                 cmd.Parameters.AddWithValue("@Name", ev.Name);
                 cmd.Parameters.AddWithValue("@Date", ev.Date.ToString("dd.MM.yyyy"));
                 cmd.Parameters.AddWithValue("@Location", ev.Location);
@@ -364,7 +360,6 @@ namespace fiz.Data
                 cmd.Parameters.AddWithValue("@ParticipantCount", ev.ParticipantCount);
                 cmd.Parameters.AddWithValue("@Level", ev.Level ?? "");
                 cmd.Parameters.AddWithValue("@EventType", ev.EventType ?? "");
-                cmd.Parameters.AddWithValue("@IsOnBase", ev.IsOnBase ? 1 : 0);
                 cmd.Parameters.AddWithValue("@IsOfficial", ev.IsOfficial ? 1 : 0);
                 cmd.ExecuteNonQuery();
             }
@@ -377,7 +372,7 @@ namespace fiz.Data
                 conn.Open();
                 var cmd = new SqliteCommand(@"UPDATE Events SET Name = @Name, Date = @Date, Location = @Location,
                                               Organizer = @Organizer, SportType = @SportType, ParticipantCount = @ParticipantCount,
-                                              Level = @Level, EventType = @EventType, IsOnBase = @IsOnBase, IsOfficial = @IsOfficial
+                                              Level = @Level, EventType = @EventType, IsOfficial = @IsOfficial
                                               WHERE Id = @Id", conn);
                 cmd.Parameters.AddWithValue("@Id", ev.Id);
                 cmd.Parameters.AddWithValue("@Name", ev.Name);
@@ -388,7 +383,6 @@ namespace fiz.Data
                 cmd.Parameters.AddWithValue("@ParticipantCount", ev.ParticipantCount);
                 cmd.Parameters.AddWithValue("@Level", ev.Level ?? "");
                 cmd.Parameters.AddWithValue("@EventType", ev.EventType ?? "");
-                cmd.Parameters.AddWithValue("@IsOnBase", ev.IsOnBase ? 1 : 0);
                 cmd.Parameters.AddWithValue("@IsOfficial", ev.IsOfficial ? 1 : 0);
                 cmd.ExecuteNonQuery();
             }

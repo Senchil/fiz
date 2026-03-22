@@ -62,7 +62,6 @@ namespace fiz.Forms
 
             var cbLevel = AddComboRow(layout, "Уровень", new[] { "Региональный", "Межрегиональный", "Всероссийский", "Международный" }, ev.Level);
             var cbType = AddComboRow(layout, "Тип", new[] { "Обычное", "Комплексное" }, ev.EventType);
-            var cbOnBase = AddCheckRow(layout, "Проводилось на базе", ev.IsOnBase);
             var cbOfficial = AddCheckRow(layout, "Официальное", ev.IsOfficial);
 
             if (ShowDialogWithButtons(form) != DialogResult.OK)
@@ -87,7 +86,6 @@ namespace fiz.Forms
             ev.ParticipantCount = (int)numCount.Value;
             ev.Level = cbLevel.SelectedItem?.ToString();
             ev.EventType = cbType.SelectedItem?.ToString();
-            ev.IsOnBase = cbOnBase.Checked;
             ev.IsOfficial = cbOfficial.Checked;
 
             result = ev;

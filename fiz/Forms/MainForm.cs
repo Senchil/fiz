@@ -259,7 +259,6 @@ namespace fiz
                     ev.SportType,
                     ev.Level,
                     ev.EventType,
-                    ev.IsOnBase ? "Да" : "Нет",
                     ev.IsOfficial ? "Да" : "Нет"
                 );
             }
@@ -407,8 +406,7 @@ namespace fiz
                 SportType = Convert.ToString(row.Cells[6].Value) ?? "",
                 Level = Convert.ToString(row.Cells[7].Value) ?? "",
                 EventType = Convert.ToString(row.Cells[8].Value) ?? "",
-                IsOnBase = Convert.ToString(row.Cells[9].Value) == "Да",
-                IsOfficial = Convert.ToString(row.Cells[10].Value) == "Да"
+                IsOfficial = Convert.ToString(row.Cells[9].Value) == "Да",
             };
 
             if (!CrudDialogs.TryEditEvent(this, ev, out var edited)) return;
