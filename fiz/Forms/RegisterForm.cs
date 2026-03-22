@@ -11,12 +11,12 @@ namespace fiz
         private RoundedTextBox textBoxLogin;
         private RoundedTextBox textBoxPassword;
         private RoundedTextBox textBoxPasswordConfirm;
+        private ComboBox cbRole;
         private RoundedButton buttonRegister;
         private Panel headerPanel;
 
         public RegisterForm()
         {
-            //InitializeComponent();
             InitializeCustomControls();
         }
 
@@ -27,7 +27,6 @@ namespace fiz
             this.BackColor = Color.White;
             this.StartPosition = FormStartPosition.CenterScreen;
 
-            // Шапка
             headerPanel = new Panel();
             headerPanel.BackColor = Color.FromArgb(32, 178, 170);
             headerPanel.Dock = DockStyle.Top;
@@ -42,7 +41,6 @@ namespace fiz
             titleLabel.TextAlign = ContentAlignment.MiddleCenter;
             headerPanel.Controls.Add(titleLabel);
 
-            // Логин
             textBoxLogin = new RoundedTextBox();
             textBoxLogin.PlaceholderText = "Логин";
             textBoxLogin.BackColor = Color.FromArgb(240, 240, 240);
@@ -51,7 +49,6 @@ namespace fiz
             textBoxLogin.Location = new Point((this.ClientSize.Width - 250) / 2, 80);
             textBoxLogin.Anchor = AnchorStyles.Top;
 
-            // Пароль
             textBoxPassword = new RoundedTextBox();
             textBoxPassword.PlaceholderText = "Пароль";
             textBoxPassword.PasswordChar = '*';
@@ -62,7 +59,6 @@ namespace fiz
             textBoxPassword.Location = new Point((this.ClientSize.Width - 250) / 2, 135);
             textBoxPassword.Anchor = AnchorStyles.Top;
 
-            // Повтор пароля
             textBoxPasswordConfirm = new RoundedTextBox();
             textBoxPasswordConfirm.PlaceholderText = "Повторите пароль";
             textBoxPasswordConfirm.PasswordChar = '*';
@@ -73,7 +69,13 @@ namespace fiz
             textBoxPasswordConfirm.Location = new Point((this.ClientSize.Width - 250) / 2, 190);
             textBoxPasswordConfirm.Anchor = AnchorStyles.Top;
 
-            // Кнопка
+            cbRole = new ComboBox();
+            cbRole.Items.AddRange(new[] { "user", "admin" });
+            cbRole.SelectedIndex = 0;
+            cbRole.Size = new Size(250, 30);
+            cbRole.Location = new Point((this.ClientSize.Width - 250) / 2, 245);
+            cbRole.DropDownStyle = ComboBoxStyle.DropDownList;
+
             buttonRegister = new RoundedButton();
             buttonRegister.Text = "Зарегистрироваться";
             buttonRegister.BackColor = Color.FromArgb(32, 178, 170);
@@ -82,7 +84,7 @@ namespace fiz
             buttonRegister.FlatAppearance.BorderSize = 0;
             buttonRegister.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
             buttonRegister.Size = new Size(250, 40);
-            buttonRegister.Location = new Point((this.ClientSize.Width - 250) / 2, 260);
+            buttonRegister.Location = new Point((this.ClientSize.Width - 250) / 2, 295);
             buttonRegister.Anchor = AnchorStyles.Top;
             buttonRegister.Cursor = Cursors.Hand;
             buttonRegister.Click += ButtonRegister_Click;
@@ -90,6 +92,7 @@ namespace fiz
             this.Controls.Add(textBoxLogin);
             this.Controls.Add(textBoxPassword);
             this.Controls.Add(textBoxPasswordConfirm);
+            this.Controls.Add(cbRole);
             this.Controls.Add(buttonRegister);
             this.Controls.Add(headerPanel);
         }
@@ -98,7 +101,8 @@ namespace fiz
         {
             string login = textBoxLogin.Text.Trim();
             string password = textBoxPassword.Text.Trim();
-            string confirmPassword = textBoxPasswordConfirm.Text.Trim();
+            string confirm = textBoxPasswordConfirm.Text.Trim();
+            string role = cbRole.SelectedItem?.ToString() ?? "user";
 
             if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
             {
@@ -118,22 +122,22 @@ namespace fiz
                 return;
             }
 
-            if (password != confirmPassword)
+            if (password != confirm)
             {
                 MessageBox.Show("Пароли не совпадают!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            bool success = Database.Register(login, password);
+            bool success = Database.Register(login, password, role);
 
             if (success)
             {
-                MessageBox.Show("Регистрация успешна! Теперь войдите.", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Регистрация успешна!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Пользователь с таким логином уже существует!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Пользователь уже существует!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

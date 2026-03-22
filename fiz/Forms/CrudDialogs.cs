@@ -60,6 +60,11 @@ namespace fiz.Forms
             var tbSport = AddRoundedRow(layout, "Вид спорта", ev.SportType, "Например, Плавание");
             var numCount = AddNumericRow(layout, "Участников", ev.ParticipantCount);
 
+            var cbLevel = AddComboRow(layout, "Уровень", new[] { "Региональный", "Межрегиональный", "Всероссийский", "Международный" }, ev.Level);
+            var cbType = AddComboRow(layout, "Тип", new[] { "Обычное", "Комплексное" }, ev.EventType);
+            var cbOnBase = AddCheckRow(layout, "Проводилось на базе", ev.IsOnBase);
+            var cbOfficial = AddCheckRow(layout, "Официальное", ev.IsOfficial);
+
             if (ShowDialogWithButtons(form) != DialogResult.OK)
             {
                 result = ev;
@@ -80,6 +85,10 @@ namespace fiz.Forms
             ev.Organizer = tbOrganizer.Text.Trim();
             ev.SportType = tbSport.Text.Trim();
             ev.ParticipantCount = (int)numCount.Value;
+            ev.Level = cbLevel.SelectedItem?.ToString();
+            ev.EventType = cbType.SelectedItem?.ToString();
+            ev.IsOnBase = cbOnBase.Checked;
+            ev.IsOfficial = cbOfficial.Checked;
 
             result = ev;
             return true;
@@ -315,6 +324,51 @@ namespace fiz.Forms
             form.CancelButton = cancelButton;
 
             return form.ShowDialog();
+        }
+        private static ComboBox AddComboRow(TableLayoutPanel layout, string labelText, string[] items, string selectedValue)
+        {
+            var label = new Label
+            {
+                Text = labelText,
+                Font = new Font("Microsoft Sans Serif", 9F),
+                AutoSize = true,
+                Margin = new Padding(0, 8, 0, 2)
+            };
+
+            var cb = new ComboBox
+            {
+                Width = 360,
+                Height = 30,
+                DropDownStyle = ComboBoxStyle.DropDownList
+            };
+            cb.Items.AddRange(items);
+            if (!string.IsNullOrEmpty(selectedValue) && cb.Items.Contains(selectedValue))
+                cb.SelectedItem = selectedValue;
+            else if (items.Length > 0)
+                cb.SelectedIndex = 0;
+
+            layout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            layout.Controls.Add(label);
+            layout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            layout.Controls.Add(cb);
+
+            return cb;
+        }
+
+        private static CheckBox AddCheckRow(TableLayoutPanel layout, string text, bool isChecked)
+        {
+            var cb = new CheckBox
+            {
+                Text = text,
+                Width = 360,
+                Height = 30,
+                Checked = isChecked
+            };
+
+            layout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            layout.Controls.Add(cb);
+
+            return cb;
         }
     }
 }

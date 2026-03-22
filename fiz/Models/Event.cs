@@ -13,5 +13,9 @@ namespace fiz.Models
         public string Organizer { get; set; }
         public string SportType { get; set; }
         public int ParticipantCount { get; set; }
+        public string Level { get; set; }
+        public string EventType { get; set; }
+        public bool IsOnBase { get; set; }
+        public bool IsOfficial { get; set; }
     }
 }
