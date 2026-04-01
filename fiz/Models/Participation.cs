@@ -14,5 +14,7 @@ namespace fiz.Models
         public string Rank { get; set; }
         public string AddedBy { get; set; }
         public DateTime Date { get; set; }
+        public string UpdatedBy { get; set; }
+        public DateTime? UpdatedAt { get; set; }
     }
 }

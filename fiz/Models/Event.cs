@@ -16,5 +16,6 @@ namespace fiz.Models
         public string Level { get; set; }
         public string EventType { get; set; }
         public bool IsOfficial { get; set; }
+        public string CreatedBy { get; set; }
     }
 }

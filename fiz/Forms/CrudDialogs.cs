@@ -1,6 +1,8 @@
 using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
+using fiz.Data;
 using fiz.Models;
 
 namespace fiz.Forms
@@ -99,7 +101,7 @@ namespace fiz.Forms
             using var form = CreateBaseForm(existing == null ? "Добавить участие" : "Редактировать участие", "Данные участия");
             var layout = CreateFieldsLayout(form);
 
-            var tbEvent = AddRoundedRow(layout, "Мероприятие", p.EventName, "Название мероприятия");
+            var cbEvent = AddComboRow(layout, "Мероприятие", GetEventNames(), p.EventName);
             var tbStudent = AddRoundedRow(layout, "Студент", p.StudentName, "ФИО студента");
             var tbResult = AddRoundedRow(layout, "Результат", p.Result, "Например, Призовое место");
             var tbAward = AddRoundedRow(layout, "Награда", p.Award, "Кубок / медаль / грамота");
@@ -113,8 +115,9 @@ namespace fiz.Forms
                 return false;
             }
 
-            var eventName = tbEvent.Text.Trim();
+            var eventName = cbEvent.SelectedItem?.ToString();
             var studentName = tbStudent.Text.Trim();
+
             if (string.IsNullOrWhiteSpace(eventName) || string.IsNullOrWhiteSpace(studentName))
             {
                 MessageBox.Show(owner, "Поля \"Мероприятие\" и \"Студент\" обязательны.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -132,6 +135,28 @@ namespace fiz.Forms
 
             result = p;
             return true;
+        }
+
+        private static string[] GetEventNames()
+        {
+            var events = Database.GetEvents();
+            var names = new string[events.Count];
+            for (int i = 0; i < events.Count; i++)
+            {
+                names[i] = events[i].Name;
+            }
+            return names;
+        }
+
+        private static string[] GetStudentNames()
+        {
+            var students = Database.GetStudents();
+            var names = new string[students.Count];
+            for (int i = 0; i < students.Count; i++)
+            {
+                names[i] = students[i].FullName;
+            }
+            return names;
         }
 
         private static Form CreateBaseForm(string title, string sectionTitle)
@@ -323,6 +348,7 @@ namespace fiz.Forms
 
             return form.ShowDialog();
         }
+
         private static ComboBox AddComboRow(TableLayoutPanel layout, string labelText, string[] items, string selectedValue)
         {
             var label = new Label

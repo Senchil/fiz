@@ -35,89 +35,83 @@ namespace fiz.Data
             using (var conn = new SqliteConnection(ConnectionString))
             {
                 conn.Open();
+                try
+                {
+                    var cmd = new SqliteCommand("ALTER TABLE Students ADD COLUMN CreatedBy TEXT DEFAULT 'unknown'", conn);
+                    cmd.ExecuteNonQuery();
+                }
+                catch { }
+
+                try
+                {
+                    var cmd = new SqliteCommand("ALTER TABLE Events ADD COLUMN CreatedBy TEXT DEFAULT 'unknown'", conn);
+                    cmd.ExecuteNonQuery();
+                }
+                catch { }
+
+                try
+                {
+                    var cmd = new SqliteCommand("ALTER TABLE Participations ADD COLUMN UpdatedBy TEXT", conn);
+                    cmd.ExecuteNonQuery();
+                }
+                catch { }
+
+                try
+                {
+                    var cmd = new SqliteCommand("ALTER TABLE Participations ADD COLUMN UpdatedAt TEXT", conn);
+                    cmd.ExecuteNonQuery();
+                }
+                catch { }
 
                 string[] tables = {
-                    @"CREATE TABLE IF NOT EXISTS Users (
-                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        Login TEXT NOT NULL UNIQUE,
-                        PasswordHash TEXT NOT NULL,
-                        Role TEXT NOT NULL DEFAULT 'user',
-                        CreatedAt TEXT NOT NULL
-                    )",
-                    @"CREATE TABLE IF NOT EXISTS Students (
-                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        FullName TEXT NOT NULL,
-                        Faculty TEXT NOT NULL,
-                        ""Group"" TEXT NOT NULL,
-                        StudentCardNumber TEXT NOT NULL,
-                        BirthDate TEXT NOT NULL,
-                        ContactInfo TEXT NOT NULL
-                    )",
-                    @"CREATE TABLE IF NOT EXISTS Events (
-                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        Name TEXT NOT NULL,
-                        Date TEXT NOT NULL,
-                        Location TEXT NOT NULL,
-                        Organizer TEXT NOT NULL,
-                        SportType TEXT NOT NULL,
-                        ParticipantCount INTEGER NOT NULL,
-                        Level TEXT,
-                        EventType TEXT,
-                        IsOfficial INTEGER NOT NULL DEFAULT 0
-                    )",
-                    @"CREATE TABLE IF NOT EXISTS Participations (
-                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        EventName TEXT NOT NULL,
-                        StudentName TEXT NOT NULL,
-                        Result TEXT NOT NULL,
-                        Award TEXT NOT NULL,
-                        Rank TEXT NOT NULL,
-                        AddedBy TEXT NOT NULL,
-                        Date TEXT NOT NULL
-                    )",
-                    @"CREATE TABLE IF NOT EXISTS Ranks (
-                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        Name TEXT NOT NULL UNIQUE,
-                        OrderNum INTEGER NOT NULL
-                    )",
-                    @"CREATE TABLE IF NOT EXISTS StudentRanks (
-                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    StudentId INTEGER NOT NULL,
-                    RankId INTEGER NOT NULL,
-                    SportType TEXT NOT NULL,
-                    AssignedDate TEXT NOT NULL,
-                    FOREIGN KEY(StudentId) REFERENCES Students(Id),
-                    FOREIGN KEY(RankId) REFERENCES Ranks(Id)
-                    )"
-                };
+            @"CREATE TABLE IF NOT EXISTS Users (
+                Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                Login TEXT NOT NULL UNIQUE,
+                PasswordHash TEXT NOT NULL,
+                Role TEXT NOT NULL DEFAULT 'user',
+                CreatedAt TEXT NOT NULL
+            )",
+            @"CREATE TABLE IF NOT EXISTS Students (
+                Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                FullName TEXT NOT NULL,
+                Faculty TEXT NOT NULL,
+                ""Group"" TEXT NOT NULL,
+                StudentCardNumber TEXT NOT NULL,
+                BirthDate TEXT NOT NULL,
+                ContactInfo TEXT NOT NULL,
+                CreatedBy TEXT NOT NULL
+            )",
+            @"CREATE TABLE IF NOT EXISTS Events (
+                Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                Name TEXT NOT NULL,
+                Date TEXT NOT NULL,
+                Location TEXT NOT NULL,
+                Organizer TEXT NOT NULL,
+                SportType TEXT NOT NULL,
+                ParticipantCount INTEGER NOT NULL,
+                Level TEXT,
+                EventType TEXT,
+                IsOfficial INTEGER NOT NULL DEFAULT 0,
+                CreatedBy TEXT NOT NULL
+            )",
+            @"CREATE TABLE IF NOT EXISTS Participations (
+                Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                EventName TEXT NOT NULL,
+                StudentName TEXT NOT NULL,
+                Result TEXT NOT NULL,
+                Award TEXT NOT NULL,
+                Rank TEXT NOT NULL,
+                AddedBy TEXT NOT NULL,
+                Date TEXT NOT NULL,
+                UpdatedBy TEXT,
+                UpdatedAt TEXT
+            )"
+        };
 
                 foreach (var table in tables)
                 {
                     using (var cmd = new SqliteCommand(table, conn))
                     {
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-                InsertDefaultRanks();
-            }
-        }
-        private static void InsertDefaultRanks()
-        {
-            using (var conn = new SqliteConnection(ConnectionString))
-            {
-                conn.Open();
-                var cmd = new SqliteCommand("SELECT COUNT(*) FROM Ranks", conn);
-                int count = Convert.ToInt32(cmd.ExecuteScalar());
-
-                if (count == 0)
-                {
-                    string[] ranks = { "3 разряд", "2 разряд", "1 разряд", "КМС", "МС", "МСМК" };
-                    for (int i = 0; i < ranks.Length; i++)
-                    {
-                        cmd.CommandText = "INSERT INTO Ranks (Name, OrderNum) VALUES (@name, @order)";
-                        cmd.Parameters.Clear();
-                        cmd.Parameters.AddWithValue("@name", ranks[i]);
-                        cmd.Parameters.AddWithValue("@order", i + 1);
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -156,6 +150,7 @@ namespace fiz.Data
                 }
             }
         }
+
         private static void InsertTestData()
         {
             using (var conn = new SqliteConnection(ConnectionString))
@@ -167,24 +162,27 @@ namespace fiz.Data
 
                 if (count == 0)
                 {
-                    cmd.CommandText = @"INSERT INTO Students (FullName, Faculty, ""Group"", StudentCardNumber, BirthDate, ContactInfo) 
-                                VALUES ('Черкасский Данил Сергеевич', 'ФМИЗ', 'ИИ-23', '1337', '04.02.2005', 'danil@gmail.com')";
+                    cmd.CommandText = @"INSERT INTO Students (FullName, Faculty, ""Group"", StudentCardNumber, BirthDate, ContactInfo, CreatedBy) 
+                                VALUES ('Черкасский Данил Сергеевич', 'ФМИЗ', 'ИИ-23', '1337', '04.02.2005', 'danil@gmail.com', 'admin')";
                     cmd.ExecuteNonQuery();
 
-                    cmd.CommandText = @"INSERT INTO Students (FullName, Faculty, ""Group"", StudentCardNumber, BirthDate, ContactInfo) 
-                                VALUES ('Петров Петр Петрович', 'ФИ', 'ИО-21', '1338', '31.01.2003', '88005553535')";
+                    cmd.CommandText = @"INSERT INTO Students (FullName, Faculty, ""Group"", StudentCardNumber, BirthDate, ContactInfo, CreatedBy) 
+                                VALUES ('Петров Петр Петрович', 'ФИ', 'ИО-21', '1338', '31.01.2003', '88005553535', 'admin')";
                     cmd.ExecuteNonQuery();
 
-                    cmd.CommandText = @"INSERT INTO Events (Name, Date, Location, Organizer, SportType, ParticipantCount, Level, EventType, IsOfficial) 
-                                VALUES ('Кубок КГПИ', '27.02.2026', 'СК ''Олимп''', 'Факультетский', 'Плавание', 25, 'Региональный', 'Обычное', 1)";
+                    cmd.CommandText = @"INSERT INTO Events (Name, Date, Location, Organizer, SportType, ParticipantCount, Level, EventType, IsOfficial, CreatedBy) 
+                                VALUES ('Кубок КГПИ', '27.02.2026', 'СК ''Олимп''', 'Факультетский', 'Плавание', 25, 'Региональный', 'Обычное', 1, 'admin')";
                     cmd.ExecuteNonQuery();
 
-                    cmd.CommandText = @"INSERT INTO Participations (EventName, StudentName, Result, Award, Rank, AddedBy, Date) 
-                                VALUES ('Кубок КГПИ', 'Черкасский Данил Сергеевич', 'Призовое место', 'Медаль', '1-ый разряд', 'admin', '05.03.2026')";
+                    cmd.CommandText = @"INSERT INTO Participations (EventName, StudentName, Result, Award, Rank, AddedBy, Date, UpdatedBy, UpdatedAt) 
+                                VALUES ('Кубок КГПИ', 'Черкасский Данил Сергеевич', 'Призовое место', 'Медаль', '1-ый разряд', 'admin', '05.03.2026', 'admin', '05.03.2026 10:00:00')";
                     cmd.ExecuteNonQuery();
                 }
             }
         }
+
+        // ========== АВТОРИЗАЦИЯ ==========
+
         public static User AuthenticateUser(string login, string password)
         {
             using (var conn = new SqliteConnection(ConnectionString))
@@ -241,6 +239,8 @@ namespace fiz.Data
             catch { return false; }
         }
 
+        // ========== СТУДЕНТЫ ==========
+
         public static List<Student> GetAllStudents()
         {
             var list = new List<Student>();
@@ -260,7 +260,8 @@ namespace fiz.Data
                             Group = reader["Group"].ToString(),
                             StudentCardNumber = reader["StudentCardNumber"].ToString(),
                             BirthDate = DateTime.Parse(reader["BirthDate"].ToString()),
-                            ContactInfo = reader["ContactInfo"].ToString()
+                            ContactInfo = reader["ContactInfo"].ToString(),
+                            CreatedBy = reader["CreatedBy"].ToString()
                         });
                     }
                 }
@@ -273,14 +274,15 @@ namespace fiz.Data
             using (var conn = new SqliteConnection(ConnectionString))
             {
                 conn.Open();
-                var cmd = new SqliteCommand(@"INSERT INTO Students (FullName, Faculty, ""Group"", StudentCardNumber, BirthDate, ContactInfo) 
-                                              VALUES (@FullName, @Faculty, @Group, @StudentCardNumber, @BirthDate, @ContactInfo)", conn);
+                var cmd = new SqliteCommand(@"INSERT INTO Students (FullName, Faculty, ""Group"", StudentCardNumber, BirthDate, ContactInfo, CreatedBy) 
+                                      VALUES (@FullName, @Faculty, @Group, @StudentCardNumber, @BirthDate, @ContactInfo, @CreatedBy)", conn);
                 cmd.Parameters.AddWithValue("@FullName", s.FullName);
                 cmd.Parameters.AddWithValue("@Faculty", s.Faculty);
                 cmd.Parameters.AddWithValue("@Group", s.Group);
                 cmd.Parameters.AddWithValue("@StudentCardNumber", s.StudentCardNumber);
                 cmd.Parameters.AddWithValue("@BirthDate", s.BirthDate.ToString("dd.MM.yyyy"));
                 cmd.Parameters.AddWithValue("@ContactInfo", s.ContactInfo);
+                cmd.Parameters.AddWithValue("@CreatedBy", Database.CurrentUser?.Login ?? "unknown");
                 cmd.ExecuteNonQuery();
             }
         }
@@ -309,44 +311,13 @@ namespace fiz.Data
             using (var conn = new SqliteConnection(ConnectionString))
             {
                 conn.Open();
-
-                using (var transaction = conn.BeginTransaction())
-                {
-                    try
-                    {
-                        var cmdDeleteRanks = new SqliteCommand(
-                            "DELETE FROM StudentRanks WHERE StudentId = @Id", conn, transaction);
-                        cmdDeleteRanks.Parameters.AddWithValue("@Id", id);
-                        cmdDeleteRanks.ExecuteNonQuery();
-
-                        var cmdGetName = new SqliteCommand(
-                            "SELECT FullName FROM Students WHERE Id = @Id", conn, transaction);
-                        cmdGetName.Parameters.AddWithValue("@Id", id);
-                        var studentName = cmdGetName.ExecuteScalar()?.ToString();
-
-                        if (!string.IsNullOrEmpty(studentName))
-                        {
-                            var cmdDeleteParticipations = new SqliteCommand(
-                               "DELETE FROM Participations WHERE StudentName = @Name", conn, transaction);
-                            cmdDeleteParticipations.Parameters.AddWithValue("@Name", studentName);
-                            cmdDeleteParticipations.ExecuteNonQuery();
-                        }
-
-                        var cmdDeleteStudent = new SqliteCommand(
-                            "DELETE FROM Students WHERE Id = @Id", conn, transaction);
-                        cmdDeleteStudent.Parameters.AddWithValue("@Id", id);
-                        cmdDeleteStudent.ExecuteNonQuery();
-
-                        transaction.Commit();
-                    }
-                    catch
-                    {
-                        transaction.Rollback();
-                        throw;
-                    }
-                }
+                var cmd = new SqliteCommand("DELETE FROM Students WHERE Id = @Id", conn);
+                cmd.Parameters.AddWithValue("@Id", id);
+                cmd.ExecuteNonQuery();
             }
         }
+
+        // ========== МЕРОПРИЯТИЯ ==========
 
         public static List<Event> GetAllEvents()
         {
@@ -370,7 +341,8 @@ namespace fiz.Data
                             ParticipantCount = Convert.ToInt32(reader["ParticipantCount"]),
                             Level = reader["Level"]?.ToString(),
                             EventType = reader["EventType"]?.ToString(),
-                            IsOfficial = Convert.ToInt32(reader["IsOfficial"]) == 1
+                            IsOfficial = Convert.ToInt32(reader["IsOfficial"]) == 1,
+                            CreatedBy = reader["CreatedBy"].ToString()
                         });
                     }
                 }
@@ -383,8 +355,8 @@ namespace fiz.Data
             using (var conn = new SqliteConnection(ConnectionString))
             {
                 conn.Open();
-                var cmd = new SqliteCommand(@"INSERT INTO Events (Name, Date, Location, Organizer, SportType, ParticipantCount, Level, EventType, IsOfficial) 
-                                      VALUES (@Name, @Date, @Location, @Organizer, @SportType, @ParticipantCount, @Level, @EventType, @IsOfficial)", conn);
+                var cmd = new SqliteCommand(@"INSERT INTO Events (Name, Date, Location, Organizer, SportType, ParticipantCount, Level, EventType, IsOfficial, CreatedBy) 
+                                      VALUES (@Name, @Date, @Location, @Organizer, @SportType, @ParticipantCount, @Level, @EventType, @IsOfficial, @CreatedBy)", conn);
                 cmd.Parameters.AddWithValue("@Name", ev.Name);
                 cmd.Parameters.AddWithValue("@Date", ev.Date.ToString("dd.MM.yyyy"));
                 cmd.Parameters.AddWithValue("@Location", ev.Location);
@@ -394,6 +366,7 @@ namespace fiz.Data
                 cmd.Parameters.AddWithValue("@Level", ev.Level ?? "");
                 cmd.Parameters.AddWithValue("@EventType", ev.EventType ?? "");
                 cmd.Parameters.AddWithValue("@IsOfficial", ev.IsOfficial ? 1 : 0);
+                cmd.Parameters.AddWithValue("@CreatedBy", Database.CurrentUser?.Login ?? "unknown");
                 cmd.ExecuteNonQuery();
             }
         }
@@ -432,6 +405,8 @@ namespace fiz.Data
             }
         }
 
+        // ========== УЧАСТИЯ ==========
+
         public static List<Participation> GetAllParticipations()
         {
             var list = new List<Participation>();
@@ -452,7 +427,9 @@ namespace fiz.Data
                             Award = reader["Award"].ToString(),
                             Rank = reader["Rank"].ToString(),
                             AddedBy = reader["AddedBy"].ToString(),
-                            Date = DateTime.Parse(reader["Date"].ToString())
+                            Date = DateTime.Parse(reader["Date"].ToString()),
+                            UpdatedBy = reader["UpdatedBy"]?.ToString(),
+                            UpdatedAt = reader["UpdatedAt"] != null ? DateTime.Parse(reader["UpdatedAt"].ToString()) : (DateTime?)null
                         });
                     }
                 }
@@ -465,15 +442,17 @@ namespace fiz.Data
             using (var conn = new SqliteConnection(ConnectionString))
             {
                 conn.Open();
-                var cmd = new SqliteCommand(@"INSERT INTO Participations (EventName, StudentName, Result, Award, Rank, AddedBy, Date) 
-                                              VALUES (@EventName, @StudentName, @Result, @Award, @Rank, @AddedBy, @Date)", conn);
+                var cmd = new SqliteCommand(@"INSERT INTO Participations (EventName, StudentName, Result, Award, Rank, AddedBy, Date, UpdatedBy, UpdatedAt) 
+                                      VALUES (@EventName, @StudentName, @Result, @Award, @Rank, @AddedBy, @Date, @UpdatedBy, @UpdatedAt)", conn);
                 cmd.Parameters.AddWithValue("@EventName", p.EventName);
                 cmd.Parameters.AddWithValue("@StudentName", p.StudentName);
                 cmd.Parameters.AddWithValue("@Result", p.Result);
                 cmd.Parameters.AddWithValue("@Award", p.Award);
                 cmd.Parameters.AddWithValue("@Rank", p.Rank);
-                cmd.Parameters.AddWithValue("@AddedBy", p.AddedBy);
+                cmd.Parameters.AddWithValue("@AddedBy", Database.CurrentUser?.Login ?? "unknown");
                 cmd.Parameters.AddWithValue("@Date", p.Date.ToString("dd.MM.yyyy"));
+                cmd.Parameters.AddWithValue("@UpdatedBy", Database.CurrentUser?.Login ?? "unknown");
+                cmd.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss"));
                 cmd.ExecuteNonQuery();
             }
         }
@@ -483,8 +462,16 @@ namespace fiz.Data
             using (var conn = new SqliteConnection(ConnectionString))
             {
                 conn.Open();
-                var cmd = new SqliteCommand(@"UPDATE Participations SET EventName = @EventName, StudentName = @StudentName,
-                                              Result = @Result, Award = @Award, Rank = @Rank, AddedBy = @AddedBy, Date = @Date
+                var cmd = new SqliteCommand(@"UPDATE Participations SET 
+                                              EventName = @EventName, 
+                                              StudentName = @StudentName,
+                                              Result = @Result, 
+                                              Award = @Award, 
+                                              Rank = @Rank, 
+                                              AddedBy = @AddedBy, 
+                                              Date = @Date,
+                                              UpdatedBy = @UpdatedBy,
+                                              UpdatedAt = @UpdatedAt
                                               WHERE Id = @Id", conn);
                 cmd.Parameters.AddWithValue("@Id", p.Id);
                 cmd.Parameters.AddWithValue("@EventName", p.EventName);
@@ -494,6 +481,8 @@ namespace fiz.Data
                 cmd.Parameters.AddWithValue("@Rank", p.Rank);
                 cmd.Parameters.AddWithValue("@AddedBy", p.AddedBy);
                 cmd.Parameters.AddWithValue("@Date", p.Date.ToString("dd.MM.yyyy"));
+                cmd.Parameters.AddWithValue("@UpdatedBy", Database.CurrentUser?.Login ?? "unknown");
+                cmd.Parameters.AddWithValue("@UpdatedAt", DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss"));
                 cmd.ExecuteNonQuery();
             }
         }
@@ -508,79 +497,95 @@ namespace fiz.Data
                 cmd.ExecuteNonQuery();
             }
         }
-        public static List<Rank> GetAllRanks()
+        // ========== ПОЛУЧЕНИЕ ЗАПИСЕЙ ПО ID ==========
+
+        public static Student? GetStudentById(int id)
         {
-            var list = new List<Rank>();
             using (var conn = new SqliteConnection(ConnectionString))
             {
                 conn.Open();
-                var cmd = new SqliteCommand("SELECT * FROM Ranks ORDER BY OrderNum", conn);
+                var cmd = new SqliteCommand("SELECT * FROM Students WHERE Id = @id", conn);
+                cmd.Parameters.AddWithValue("@id", id);
                 using (var reader = cmd.ExecuteReader())
                 {
-                    while (reader.Read())
+                    if (reader.Read())
                     {
-                        list.Add(new Rank
+                        return new Student
+                        {
+                            Id = Convert.ToInt32(reader["Id"]),
+                            FullName = reader["FullName"].ToString(),
+                            Faculty = reader["Faculty"].ToString(),
+                            Group = reader["Group"].ToString(),
+                            StudentCardNumber = reader["StudentCardNumber"].ToString(),
+                            BirthDate = DateTime.Parse(reader["BirthDate"].ToString()),
+                            ContactInfo = reader["ContactInfo"].ToString(),
+                            CreatedBy = reader["CreatedBy"].ToString()
+                        };
+                    }
+                }
+            }
+            return null;
+        }
+
+        public static Event? GetEventById(int id)
+        {
+            using (var conn = new SqliteConnection(ConnectionString))
+            {
+                conn.Open();
+                var cmd = new SqliteCommand("SELECT * FROM Events WHERE Id = @id", conn);
+                cmd.Parameters.AddWithValue("@id", id);
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return new Event
                         {
                             Id = Convert.ToInt32(reader["Id"]),
                             Name = reader["Name"].ToString(),
-                            OrderNum = Convert.ToInt32(reader["OrderNum"])
-                        });
+                            Date = DateTime.Parse(reader["Date"].ToString()),
+                            Location = reader["Location"].ToString(),
+                            Organizer = reader["Organizer"].ToString(),
+                            SportType = reader["SportType"].ToString(),
+                            ParticipantCount = Convert.ToInt32(reader["ParticipantCount"]),
+                            Level = reader["Level"]?.ToString(),
+                            EventType = reader["EventType"]?.ToString(),
+                            IsOfficial = Convert.ToInt32(reader["IsOfficial"]) == 1,
+                            CreatedBy = reader["CreatedBy"].ToString()
+                        };
                     }
                 }
             }
-            return list;
+            return null;
         }
 
-        public static void AddStudentRank(StudentRank sr)
+        public static Participation? GetParticipationById(int id)
         {
             using (var conn = new SqliteConnection(ConnectionString))
             {
                 conn.Open();
-                var cmd = new SqliteCommand(@"INSERT INTO StudentRanks (StudentId, RankId, SportType, AssignedDate) 
-                                      VALUES (@StudentId, @RankId, @SportType, @AssignedDate)", conn);
-                cmd.Parameters.AddWithValue("@StudentId", sr.StudentId);
-                cmd.Parameters.AddWithValue("@RankId", sr.RankId);
-                cmd.Parameters.AddWithValue("@SportType", sr.SportType);
-                cmd.Parameters.AddWithValue("@AssignedDate", sr.AssignedDate.ToString("dd.MM.yyyy"));
-                cmd.ExecuteNonQuery();
-            }
-        }
-
-        public static List<StudentRank> GetStudentRanks(int studentId)
-        {
-            var list = new List<StudentRank>();
-            using (var conn = new SqliteConnection(ConnectionString))
-            {
-                conn.Open();
-                var cmd = new SqliteCommand("SELECT * FROM StudentRanks WHERE StudentId = @id", conn);
-                cmd.Parameters.AddWithValue("@id", studentId);
+                var cmd = new SqliteCommand("SELECT * FROM Participations WHERE Id = @id", conn);
+                cmd.Parameters.AddWithValue("@id", id);
                 using (var reader = cmd.ExecuteReader())
                 {
-                    while (reader.Read())
+                    if (reader.Read())
                     {
-                        list.Add(new StudentRank
+                        return new Participation
                         {
                             Id = Convert.ToInt32(reader["Id"]),
-                            StudentId = Convert.ToInt32(reader["StudentId"]),
-                            RankId = Convert.ToInt32(reader["RankId"]),
-                            SportType = reader["SportType"].ToString(),
-                            AssignedDate = DateTime.Parse(reader["AssignedDate"].ToString())
-                        });
+                            EventName = reader["EventName"].ToString(),
+                            StudentName = reader["StudentName"].ToString(),
+                            Result = reader["Result"].ToString(),
+                            Award = reader["Award"].ToString(),
+                            Rank = reader["Rank"].ToString(),
+                            AddedBy = reader["AddedBy"].ToString(),
+                            Date = DateTime.Parse(reader["Date"].ToString()),
+                            UpdatedBy = reader["UpdatedBy"]?.ToString(),
+                            UpdatedAt = reader["UpdatedAt"] != null ? DateTime.Parse(reader["UpdatedAt"].ToString()) : (DateTime?)null
+                        };
                     }
                 }
             }
-            return list;
-        }
-
-        public static void DeleteStudentRank(int id)
-        {
-            using (var conn = new SqliteConnection(ConnectionString))
-            {
-                conn.Open();
-                var cmd = new SqliteCommand("DELETE FROM StudentRanks WHERE Id = @id", conn);
-                cmd.Parameters.AddWithValue("@id", id);
-                cmd.ExecuteNonQuery();
-            }
+            return null;
         }
     }
 }

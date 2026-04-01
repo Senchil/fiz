@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Учеба\\ПИЭ-23\\3 курс\\2 семестр\\Project\\fiz\\fiz\\fiz.csproj": {}
+    "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\fiz.csproj": {}
   },
   "projects": {
-    "D:\\Учеба\\ПИЭ-23\\3 курс\\2 семестр\\Project\\fiz\\fiz\\fiz.csproj": {
+    "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\fiz.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Учеба\\ПИЭ-23\\3 курс\\2 семестр\\Project\\fiz\\fiz\\fiz.csproj",
+        "projectUniqueName": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\fiz.csproj",
         "projectName": "fiz",
-        "projectPath": "D:\\Учеба\\ПИЭ-23\\3 курс\\2 семестр\\Project\\fiz\\fiz\\fiz.csproj",
-        "packagesPath": "C:\\Users\\tvoro\\.nuget\\packages\\",
-        "outputPath": "D:\\Учеба\\ПИЭ-23\\3 курс\\2 семестр\\Project\\fiz\\fiz\\obj\\",
+        "projectPath": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\fiz.csproj",
+        "packagesPath": "C:\\Users\\mrkri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\tvoro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mrkri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

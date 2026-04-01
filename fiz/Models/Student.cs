@@ -13,6 +13,6 @@ namespace fiz.Models
         public string StudentCardNumber { get; set; }
         public DateTime BirthDate { get; set; }
         public string ContactInfo { get; set; }
-        public List<StudentRank> Ranks { get; set; } = new List<StudentRank>();
+        public string CreatedBy { get; set; }
     }
 }

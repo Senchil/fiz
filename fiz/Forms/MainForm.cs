@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using fiz.Data;
 using fiz.Forms;
@@ -18,10 +19,8 @@ namespace fiz
         private DataGridView? eventsGrid;
         private DataGridView? participationsGrid;
 
-
         private TextBox searchBox;
         private ComboBox facultyFilter;
-        private ComboBox sportTypeFilter;
         private Button searchBtn;
         private Button resetBtn;
 
@@ -122,44 +121,32 @@ namespace fiz
             Label searchLabel = new Label
             {
                 Text = "Поиск:",
-                Location = new Point(0, 12),
-                AutoSize = true,
-                Font = new Font("Microsoft Sans Serif", 10F),
-                ForeColor = Color.FromArgb(60, 60, 60)
+                Location = new Point(5, 12),
+                AutoSize = true
             };
 
             searchBox = new TextBox
             {
                 Location = new Point(55, 8),
                 Width = 200,
-                Font = new Font("Microsoft Sans Serif", 10F),
-                BackColor = Color.White,
-                ForeColor = Color.FromArgb(60, 60, 60),
-                BorderStyle = BorderStyle.FixedSingle
+                Font = new Font("Microsoft Sans Serif", 10F)
             };
 
             Label facultyLabel = new Label
             {
                 Text = "Факультет:",
-                Location = new Point(258, 12),
-                AutoSize = true,
-                Font = new Font("Microsoft Sans Serif", 10F),
-                ForeColor = Color.FromArgb(60, 60, 60)
+                Location = new Point(280, 12),  // было 270, сдвинули вправо
+                AutoSize = true
             };
 
             facultyFilter = new ComboBox
             {
-                Location = new Point(345, 8),
+                Location = new Point(365, 8),   // было 345, сдвинули вправо
                 Width = 150,
-                DropDownStyle = ComboBoxStyle.DropDownList,
-                Font = new Font("Microsoft Sans Serif", 10F),
-                BackColor = Color.White,
-                ForeColor = Color.FromArgb(60, 60, 60),
-                FlatStyle = FlatStyle.Flat
+                DropDownStyle = ComboBoxStyle.DropDownList
             };
             facultyFilter.Items.Add("Все");
 
-            // Заполняем факультеты из базы
             var faculties = Database.GetStudents().Select(s => s.Faculty).Distinct().OrderBy(f => f);
             foreach (var f in faculties)
                 facultyFilter.Items.Add(f);
@@ -168,7 +155,7 @@ namespace fiz
             searchBtn = new Button
             {
                 Text = "Найти",
-                Location = new Point(510, 8),
+                Location = new Point(530, 8),   // было 510, сдвинули вправо
                 Width = 80,
                 Height = 30,
                 BackColor = Color.FromArgb(32, 178, 170),
@@ -181,7 +168,7 @@ namespace fiz
             resetBtn = new Button
             {
                 Text = "Сброс",
-                Location = new Point(600, 8),
+                Location = new Point(620, 8),   // было 600, сдвинули вправо
                 Width = 80,
                 Height = 30,
                 BackColor = Color.LightGray,
@@ -192,20 +179,16 @@ namespace fiz
 
             filterPanel.Controls.AddRange(new Control[] { searchLabel, searchBox, facultyLabel, facultyFilter, searchBtn, resetBtn });
 
-            // Кнопки действий
-            Button addBtn = CreateActionButton("Добавить студента", 10, 60, 180, 35);
+            Button addBtn = CreateActionButton("Добавить студента", 10, 80, 180, 35);
             addBtn.Click += (s, e) => AddStudent();
 
-            Button editBtn = CreateActionButton("Редактировать", 200, 60, 150, 35);
+            Button editBtn = CreateActionButton("Редактировать", 200, 80, 150, 35);
             editBtn.Click += (s, e) => EditSelectedStudent();
 
-            Button deleteBtn = CreateActionButton("Удалить", 360, 60, 120, 35);
+            Button deleteBtn = CreateActionButton("Удалить", 360, 80, 120, 35);
             deleteBtn.Click += (s, e) => DeleteSelectedStudent();
 
-            Button ranksBtn = CreateActionButton("Разряды", 490, 60, 100, 35);
-            ranksBtn.Click += (s, e) => ShowStudentRanks();
-
-            studentsGrid = CreateGrid(10, 105, tab);
+            studentsGrid = CreateGrid(10, 125, tab);
             studentsGrid.Columns.AddRange(
                 new DataGridViewColumn[] {
             CreateColumn("Id", "№", 40),
@@ -215,12 +198,12 @@ namespace fiz
             CreateColumn("StudentCardNumber", "Номер студ. билета", 120),
             CreateColumn("BirthDate", "Дата рождения", 100),
             CreateColumn("ContactInfo", "Контактные данные", 150),
-            CreateColumn("Ranks", "Разряды", 120)
+            CreateColumn("CreatedBy", "Создал", 100)
                 });
 
             RefreshStudentGrid(studentsGrid);
 
-            tab.Controls.AddRange(new Control[] { filterPanel, addBtn, editBtn, deleteBtn, ranksBtn, studentsGrid });
+            tab.Controls.AddRange(new Control[] { filterPanel, addBtn, editBtn, deleteBtn, studentsGrid });
         }
 
         // ===== МЕРОПРИЯТИЯ =====
@@ -238,17 +221,17 @@ namespace fiz
             eventsGrid = CreateGrid(10, 55, tab);
             eventsGrid.Columns.AddRange(
                 new DataGridViewColumn[] {
-            CreateColumn("Id", "№", 40),
-            CreateColumn("Name", "Название", 180),
-            CreateColumn("Date", "Дата", 90),
-            CreateColumn("Location", "Место", 120),
-            CreateColumn("Organizer", "Организатор", 120),
-            CreateColumn("ParticipantCount", "Участников", 70),
-            CreateColumn("SportType", "Вид спорта", 100),
-            CreateColumn("Level", "Уровень", 100),
-            CreateColumn("EventType", "Тип", 80),
-            CreateColumn("IsOnBase", "На базе", 60),
-            CreateColumn("IsOfficial", "Офиц.", 60)
+                    CreateColumn("Id", "№", 40),
+                    CreateColumn("Name", "Название", 180),
+                    CreateColumn("Date", "Дата", 90),
+                    CreateColumn("Location", "Место", 120),
+                    CreateColumn("Organizer", "Организатор", 120),
+                    CreateColumn("ParticipantCount", "Участников", 70),
+                    CreateColumn("SportType", "Вид спорта", 100),
+                    CreateColumn("Level", "Уровень", 100),
+                    CreateColumn("EventType", "Тип", 80),
+                    CreateColumn("IsOfficial", "Офиц.", 60),
+                    CreateColumn("CreatedBy", "Создал", 100)
                 });
 
             RefreshEventGrid(eventsGrid);
@@ -270,7 +253,8 @@ namespace fiz
                     ev.SportType,
                     ev.Level,
                     ev.EventType,
-                    ev.IsOfficial ? "Да" : "Нет"
+                    ev.IsOfficial ? "Да" : "Нет",
+                    ev.CreatedBy
                 );
             }
         }
@@ -296,8 +280,10 @@ namespace fiz
                     CreateColumn("Result", "Результат", 120),
                     CreateColumn("Award", "Награда", 100),
                     CreateColumn("Rank", "Разряд", 100),
-                    CreateColumn("AddedBy", "Внёс", 100),
-                    CreateColumn("Date", "Дата", 100)
+                    CreateColumn("AddedBy", "Создал", 100),
+                    CreateColumn("Date", "Дата", 90),
+                    CreateColumn("UpdatedBy", "Изменил", 100),
+                    CreateColumn("UpdatedAt", "Дата изм.", 120)
                 });
 
             RefreshParticipationGrid(participationsGrid);
@@ -310,8 +296,18 @@ namespace fiz
             grid.Rows.Clear();
             foreach (var p in Database.GetParticipations())
             {
-                grid.Rows.Add(p.Id, p.EventName, p.StudentName, p.Result,
-                    p.Award, p.Rank, p.AddedBy, p.Date.ToString("dd.MM.yyyy"));
+                grid.Rows.Add(
+                    p.Id,
+                    p.EventName,
+                    p.StudentName,
+                    p.Result,
+                    p.Award,
+                    p.Rank,
+                    p.AddedBy,
+                    p.Date.ToString("dd.MM.yyyy"),
+                    p.UpdatedBy,
+                    p.UpdatedAt?.ToString("dd.MM.yyyy HH:mm:ss") ?? ""
+                );
             }
         }
 
@@ -377,22 +373,52 @@ namespace fiz
                 Group = Convert.ToString(row.Cells[3].Value) ?? "",
                 StudentCardNumber = Convert.ToString(row.Cells[4].Value) ?? "",
                 BirthDate = DateTime.Parse(Convert.ToString(row.Cells[5].Value) ?? DateTime.Now.ToString("dd.MM.yyyy")),
-                ContactInfo = Convert.ToString(row.Cells[6].Value) ?? ""
+                ContactInfo = Convert.ToString(row.Cells[6].Value) ?? "",
+                CreatedBy = Convert.ToString(row.Cells[7].Value) ?? ""
             };
 
-            if (!CrudDialogs.TryEditStudent(this, s, out var edited)) return;
-            Database.UpdateStudent(edited);
-            RefreshStudentGrid(studentsGrid);
+            try
+            {
+                if (!CrudDialogs.TryEditStudent(this, s, out var edited)) return;
+                Database.UpdateStudent(edited);
+                RefreshStudentGrid(studentsGrid);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                MessageBox.Show(this, ex.Message, "Доступ запрещён",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, $"Ошибка: {ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void DeleteSelectedStudent()
         {
             if (studentsGrid == null || studentsGrid.SelectedRows.Count == 0) return;
             var id = Convert.ToInt32(studentsGrid.SelectedRows[0].Cells[0].Value);
-            if (MessageBox.Show(this, "Удалить выбранного студента?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
-                return;
-            Database.DeleteStudent(id);
-            RefreshStudentGrid(studentsGrid);
+
+            try
+            {
+                if (MessageBox.Show(this, "Удалить выбранного студента?", "Подтверждение",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                    return;
+
+                Database.DeleteStudent(id);
+                RefreshStudentGrid(studentsGrid);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                MessageBox.Show(this, ex.Message, "Доступ запрещён",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, $"Ошибка: {ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void AddEvent()
@@ -455,7 +481,9 @@ namespace fiz
                 Award = Convert.ToString(row.Cells[4].Value) ?? "",
                 Rank = Convert.ToString(row.Cells[5].Value) ?? "",
                 AddedBy = Convert.ToString(row.Cells[6].Value) ?? "",
-                Date = DateTime.Parse(Convert.ToString(row.Cells[7].Value) ?? DateTime.Now.ToString("dd.MM.yyyy"))
+                Date = DateTime.Parse(Convert.ToString(row.Cells[7].Value) ?? DateTime.Now.ToString("dd.MM.yyyy")),
+                UpdatedBy = Convert.ToString(row.Cells[8].Value) ?? "",
+                UpdatedAt = !string.IsNullOrEmpty(Convert.ToString(row.Cells[9].Value)) ? DateTime.Parse(Convert.ToString(row.Cells[9].Value)) : (DateTime?)null
             };
 
             if (!CrudDialogs.TryEditParticipation(this, p, out var edited)) return;
@@ -478,6 +506,7 @@ namespace fiz
             Database.CurrentUser = null;
             this.Close();
         }
+
         private void FilterStudents()
         {
             var all = Database.GetStudents();
@@ -500,16 +529,9 @@ namespace fiz
             studentsGrid.Rows.Clear();
             foreach (var s in filtered)
             {
-                var ranks = Database.GetStudentRanks(s.Id);
-                string ranksStr = string.Join(", ", ranks.Select(r =>
-                {
-                    var rank = Database.GetRanks().FirstOrDefault(rk => rk.Id == r.RankId);
-                    return $"{rank?.Name} ({r.SportType})";
-                }));
-
                 studentsGrid.Rows.Add(s.Id, s.FullName, s.Faculty, s.Group,
                     s.StudentCardNumber, s.BirthDate.ToString("dd.MM.yyyy"),
-                    s.ContactInfo, ranksStr);
+                    s.ContactInfo, s.CreatedBy);
             }
         }
 
@@ -525,239 +547,9 @@ namespace fiz
             grid.Rows.Clear();
             foreach (var s in Database.GetStudents())
             {
-                var ranks = Database.GetStudentRanks(s.Id);
-                string ranksStr = string.Join(", ", ranks.Select(r =>
-                {
-                    var rank = Database.GetRanks().FirstOrDefault(rk => rk.Id == r.RankId);
-                    return $"{rank?.Name} ({r.SportType})";
-                }));
-
                 grid.Rows.Add(s.Id, s.FullName, s.Faculty, s.Group,
                     s.StudentCardNumber, s.BirthDate.ToString("dd.MM.yyyy"),
-                    s.ContactInfo, ranksStr);
-            }
-        }
-
-        private void ShowStudentRanks()
-        {
-            if (studentsGrid == null || studentsGrid.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Выберите студента", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            var row = studentsGrid.SelectedRows[0];
-            int studentId = Convert.ToInt32(row.Cells[0].Value);
-            string studentName = row.Cells[1].Value.ToString();
-
-            using var form = new Form
-            {
-                Text = $"Разряды студента: {studentName}",
-                Size = new Size(500, 400),
-                StartPosition = FormStartPosition.CenterParent,
-                FormBorderStyle = FormBorderStyle.FixedDialog,
-                MaximizeBox = false
-            };
-
-            var grid = new DataGridView
-            {
-                Dock = DockStyle.Fill,
-                AllowUserToAddRows = false,
-                ReadOnly = true,
-                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-            };
-            grid.Columns.Add("Id", "№");
-            grid.Columns.Add("SportType", "Вид спорта");
-            grid.Columns.Add("Rank", "Разряд");
-            grid.Columns.Add("Date", "Дата присвоения");
-
-            void LoadRanks()
-            {
-                grid.Rows.Clear();
-                var ranks = Database.GetStudentRanks(studentId);
-                var allRanks = Database.GetRanks();
-
-                foreach (var r in ranks)
-                {
-                    var rank = allRanks.FirstOrDefault(rk => rk.Id == r.RankId);
-                    grid.Rows.Add(r.Id, r.SportType, rank?.Name ?? "", r.AssignedDate.ToString("dd.MM.yyyy"));
-                }
-            }
-
-            LoadRanks();
-
-            // Кнопка добавить
-            Button addBtn = new Button
-            {
-                Text = "Добавить разряд",
-                Dock = DockStyle.Bottom,
-                Height = 40,
-                BackColor = Color.FromArgb(32, 178, 170),
-                ForeColor = Color.White,
-                FlatStyle = FlatStyle.Flat,
-                Cursor = Cursors.Hand
-            };
-
-            addBtn.Click += (s, e) =>
-            {
-                AddRankToStudent(studentId, grid, LoadRanks);
-            };
-
-            Button deleteBtn = new Button
-            {
-                Text = "Удалить",
-                Dock = DockStyle.Bottom,
-                Height = 40,
-                BackColor = Color.LightCoral,
-                FlatStyle = FlatStyle.Flat,
-                Cursor = Cursors.Hand
-            };
-
-            deleteBtn.Click += (s, e) =>
-            {
-                if (grid.SelectedRows.Count > 0)
-                {
-                    try
-                    {
-                        var cellValue = grid.SelectedRows[0].Cells[0].Value;
-                        if (cellValue == null)
-                        {
-                            MessageBox.Show("Ошибка: не удалось получить ID записи", "Ошибка",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
-
-                        int rankId = Convert.ToInt32(cellValue);
-
-                        var result = MessageBox.Show(
-                            "Вы уверены, что хотите удалить этот разряд?",
-                            "Подтверждение",
-                            MessageBoxButtons.YesNo,
-                            MessageBoxIcon.Question);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            Database.DeleteStudentRank(rankId);
-                            RefreshStudentGrid(studentsGrid);
-                            MessageBox.Show("Разряд удалён", "Успех",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            form.Close();
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Ошибка при удалении: {ex.Message}", "Ошибка",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Выберите строку для удаления", "Внимание",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            };
-            var panel = new Panel
-            {
-                Dock = DockStyle.Bottom,
-                Height = 80
-            };
-
-            panel.Controls.Add(addBtn);
-            panel.Controls.Add(deleteBtn);
-            deleteBtn.Location = new Point(0, 40);
-
-            form.Controls.Add(grid);
-            form.Controls.Add(panel);
-
-            form.ShowDialog();
-        }
-
-        private void AddRankToStudent(int studentId, DataGridView grid, Action loadRanks)
-        {
-            using var form = new Form
-            {
-                Text = "Добавить разряд",
-                Size = new Size(400, 250),
-                StartPosition = FormStartPosition.CenterParent,
-                FormBorderStyle = FormBorderStyle.FixedDialog
-            };
-
-            var ranks = Database.GetRanks();
-
-            var cbSport = new ComboBox
-            {
-                Location = new Point(120, 20),
-                Width = 200,
-                DropDownStyle = ComboBoxStyle.DropDownList
-            };
-            var sports = Database.GetEvents().Select(e => e.SportType).Distinct().ToList();
-            foreach (var s in sports) cbSport.Items.Add(s);
-
-            var cbRank = new ComboBox
-            {
-                Location = new Point(120, 60),
-                Width = 200,
-                DropDownStyle = ComboBoxStyle.DropDownList
-            };
-            foreach (var r in ranks) cbRank.Items.Add(r.Name);
-            if (cbRank.Items.Count > 0) cbRank.SelectedIndex = 0;
-
-            var dtpDate = new DateTimePicker
-            {
-                Location = new Point(120, 100),
-                Width = 200,
-                Format = DateTimePickerFormat.Short
-            };
-
-            Button okBtn = new Button
-            {
-                Text = "Сохранить",
-                Location = new Point(100, 150),
-                Width = 80,
-                DialogResult = DialogResult.OK
-            };
-            Button cancelBtn = new Button
-            {
-                Text = "Отмена",
-                Location = new Point(200, 150),
-                Width = 80,
-                DialogResult = DialogResult.Cancel
-            };
-
-            form.Controls.Add(new Label { Text = "Вид спорта:", Location = new Point(20, 23), AutoSize = true });
-            form.Controls.Add(cbSport);
-            form.Controls.Add(new Label { Text = "Разряд:", Location = new Point(20, 63), AutoSize = true });
-            form.Controls.Add(cbRank);
-            form.Controls.Add(new Label { Text = "Дата:", Location = new Point(20, 103), AutoSize = true });
-            form.Controls.Add(dtpDate);
-            form.Controls.Add(okBtn);
-            form.Controls.Add(cancelBtn);
-
-
-            if (form.ShowDialog() == DialogResult.OK && cbSport.SelectedItem != null && cbRank.SelectedItem != null)
-            {
-                try
-                {
-                    var rank = ranks.First(r => r.Name == cbRank.SelectedItem.ToString());
-                    var sr = new StudentRank
-                    {
-                        StudentId = studentId,
-                        RankId = rank.Id,
-                        SportType = cbSport.SelectedItem.ToString(),
-                        AssignedDate = dtpDate.Value
-                    };
-                    Database.AddStudentRank(sr);
-
-                    grid.Rows.Clear();
-                    loadRanks();
-                    RefreshStudentGrid(studentsGrid);
-
-                    MessageBox.Show("Разряд добавлен", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                    s.ContactInfo, s.CreatedBy);
             }
         }
     }
