@@ -427,9 +427,14 @@ namespace fiz.Data
                             Award = reader["Award"].ToString(),
                             Rank = reader["Rank"].ToString(),
                             AddedBy = reader["AddedBy"].ToString(),
-                            Date = DateTime.Parse(reader["Date"].ToString()),
+                            Date = string.IsNullOrEmpty(reader["Date"].ToString())
+? DateTime.MinValue
+: DateTime.Parse(reader["Date"].ToString()),
                             UpdatedBy = reader["UpdatedBy"]?.ToString(),
-                            UpdatedAt = reader["UpdatedAt"] != null ? DateTime.Parse(reader["UpdatedAt"].ToString()) : (DateTime?)null
+                            UpdatedAt = !string.IsNullOrEmpty(reader["UpdatedAt"]?.ToString())
+? DateTime.Parse(reader["UpdatedAt"].ToString())
+: (DateTime?)null
+                });
                         });
                     }
                 }
