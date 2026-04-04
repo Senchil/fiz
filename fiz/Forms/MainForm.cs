@@ -1,29 +1,31 @@
-using System;
-using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
 using fiz.Data;
 using fiz.Forms;
 using fiz.Models;
+using ClosedXML.Excel;
+using System;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
 
 namespace fiz
 {
     public partial class MainForm : Form
     {
+
         private TabControl mainTabControl;
         private Panel headerPanel;
         private Label welcomeLabel;
         private Button logoutButton;
 
-        private DataGridView? studentsGrid;
-        private DataGridView? eventsGrid;
-        private DataGridView? participationsGrid;
+        private DataGridView? studentsGrid; 
+        private DataGridView? eventsGrid; 
+        private DataGridView? participationsGrid; 
 
         private TextBox searchBox;
         private ComboBox facultyFilter;
         private Button searchBtn;
         private Button resetBtn;
-
         public MainForm()
         {
             InitializeCustomControls();
@@ -176,7 +178,7 @@ namespace fiz
                 Cursor = Cursors.Hand
             };
             resetBtn.Click += (s, e) => ResetStudentFilter();
-
+            studentsGrid = CreateGrid(10, 125, tab);
             filterPanel.Controls.AddRange(new Control[] { searchLabel, searchBox, facultyLabel, facultyFilter, searchBtn, resetBtn });
 
             Button addBtn = CreateActionButton("Добавить студента", 10, 80, 180, 35);
@@ -188,7 +190,13 @@ namespace fiz
             Button deleteBtn = CreateActionButton("Удалить", 360, 80, 120, 35);
             deleteBtn.Click += (s, e) => DeleteSelectedStudent();
 
-            studentsGrid = CreateGrid(10, 125, tab);
+            Button tocsvBtn = CreateActionButton(".csv", 520, 80, 120, 35);
+            tocsvBtn.Click += (s, e) => Report_grid_To_csv(studentsGrid);
+
+            Button toxlsxBtn = CreateActionButton(".xlsx", 680, 80, 120, 35);
+            toxlsxBtn.Click += (s, e) => Report_grid_To_xlsx(studentsGrid);
+
+            
             studentsGrid.Columns.AddRange(
                 new DataGridViewColumn[] {
             CreateColumn("Id", "№", 40),
@@ -203,12 +211,13 @@ namespace fiz
 
             RefreshStudentGrid(studentsGrid);
 
-            tab.Controls.AddRange(new Control[] { filterPanel, addBtn, editBtn, deleteBtn, studentsGrid });
+            tab.Controls.AddRange(new Control[] { filterPanel, addBtn, editBtn, deleteBtn, tocsvBtn, toxlsxBtn, studentsGrid });
         }
 
         // ===== МЕРОПРИЯТИЯ =====
         private void InitializeEventsTab(TabPage tab)
         {
+            eventsGrid = CreateGrid(10, 55, tab);
             Button addBtn = CreateActionButton("Добавить мероприятие", 10, 10, 200, 35);
             addBtn.Click += (s, e) => AddEvent();
 
@@ -218,7 +227,13 @@ namespace fiz
             Button deleteBtn = CreateActionButton("Удалить", 380, 10, 120, 35);
             deleteBtn.Click += (s, e) => DeleteSelectedEvent();
 
-            eventsGrid = CreateGrid(10, 55, tab);
+            Button tocsvBtn = CreateActionButton(".csv", 520, 10, 120, 35);
+            tocsvBtn.Click += (s, e) => Report_grid_To_csv(eventsGrid);
+
+            Button toxlsxBtn = CreateActionButton(".xlsx", 680, 10, 120, 35);
+            toxlsxBtn.Click += (s, e) => Report_grid_To_xlsx(eventsGrid);
+
+            
             eventsGrid.Columns.AddRange(
                 new DataGridViewColumn[] {
                     CreateColumn("Id", "№", 40),
@@ -235,7 +250,7 @@ namespace fiz
                 });
 
             RefreshEventGrid(eventsGrid);
-            tab.Controls.AddRange(new Control[] { addBtn, editBtn, deleteBtn, eventsGrid });
+            tab.Controls.AddRange(new Control[] { addBtn, editBtn, deleteBtn, tocsvBtn, toxlsxBtn, eventsGrid });
         }
 
         private void RefreshEventGrid(DataGridView grid)
@@ -262,6 +277,7 @@ namespace fiz
         // ===== УЧАСТИЯ =====
         private void InitializeParticipationsTab(TabPage tab)
         {
+            participationsGrid = CreateGrid(10, 55, tab);
             Button addBtn = CreateActionButton("Добавить участие", 10, 10, 180, 35);
             addBtn.Click += (s, e) => AddParticipation();
 
@@ -271,7 +287,13 @@ namespace fiz
             Button deleteBtn = CreateActionButton("Удалить", 360, 10, 120, 35);
             deleteBtn.Click += (s, e) => DeleteSelectedParticipation();
 
-            participationsGrid = CreateGrid(10, 55, tab);
+            Button tocsvBtn = CreateActionButton(".csv", 520, 10, 120, 35);
+            tocsvBtn.Click += (s, e) => Report_grid_To_csv(participationsGrid);
+
+            Button toxlsxBtn = CreateActionButton(".xlsx", 680, 10, 120, 35);
+            toxlsxBtn.Click += (s, e) => Report_grid_To_xlsx(participationsGrid);
+
+                        
             participationsGrid.Columns.AddRange(
                 new DataGridViewColumn[] {
                     CreateColumn("Id", "№", 40),
@@ -288,7 +310,7 @@ namespace fiz
 
             RefreshParticipationGrid(participationsGrid);
 
-            tab.Controls.AddRange(new Control[] { addBtn, editBtn, deleteBtn, participationsGrid });
+            tab.Controls.AddRange(new Control[] { addBtn, editBtn, deleteBtn, tocsvBtn, toxlsxBtn, participationsGrid });
         }
 
         private void RefreshParticipationGrid(DataGridView grid)
@@ -551,6 +573,141 @@ namespace fiz
                     s.StudentCardNumber, s.BirthDate.ToString("dd.MM.yyyy"),
                     s.ContactInfo, s.CreatedBy);
             }
+        }
+        public void Report_grid_To_csv(DataGridView dgv)
+        {
+            try
+            {
+                string fileName = $"report_{DateTime.Now:yyyyMMdd_HHmmss}.csv";
+                string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), fileName);
+
+                StringBuilder csvContent = new StringBuilder();
+
+                // Добавляем заголовки ВСЕХ столбцов
+                for (int i = 0; i < dgv.Columns.Count; i++)
+                {
+                    csvContent.Append(EscapeCsvField(dgv.Columns[i].HeaderText));
+                    if (i < dgv.Columns.Count - 1)
+                        csvContent.Append(",");
+                }
+                csvContent.AppendLine();
+
+                // Добавляем строки данных
+                foreach (DataGridViewRow row in dgv.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        for (int i = 0; i < dgv.Columns.Count; i++)
+                        {
+                            string cellValue = row.Cells[i].Value?.ToString() ?? string.Empty;
+                            csvContent.Append(EscapeCsvField(cellValue));
+
+                            if (i < dgv.Columns.Count - 1)
+                                csvContent.Append(",");
+                        }
+                        csvContent.AppendLine();
+                    }
+                }
+
+                File.WriteAllText(filePath, csvContent.ToString(), Encoding.UTF8);
+                MessageBox.Show($"CSV файл успешно сохранен!\nПуть: {filePath}", "Успех",
+                               MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при сохранении CSV: {ex.Message}", "Ошибка",
+                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void Report_grid_To_xlsx(DataGridView dgv)
+        {
+            try
+            {
+                string fileName = $"report_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
+                string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), fileName);
+
+                using (XLWorkbook workbook = new XLWorkbook())
+                {
+                    var worksheet = workbook.Worksheets.Add("Report");
+
+                    // Добавляем заголовки ВСЕХ столбцов
+                    for (int i = 0; i < dgv.Columns.Count; i++)
+                    {
+                        worksheet.Cell(1, i + 1).Value = dgv.Columns[i].HeaderText;
+                    }
+
+                    // Стиль для заголовков
+                    var headerRange = worksheet.Range(1, 1, 1, dgv.Columns.Count);
+                    headerRange.Style.Font.Bold = true;
+                    headerRange.Style.Fill.BackgroundColor = XLColor.LightGray;
+                    headerRange.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+                    // Добавляем данные
+                    int currentRow = 2;
+                    foreach (DataGridViewRow row in dgv.Rows)
+                    {
+                        if (!row.IsNewRow)
+                        {
+                            for (int i = 0; i < dgv.Columns.Count; i++)
+                            {
+                                object cellValue = row.Cells[i].Value;
+                                var cell = worksheet.Cell(currentRow, i + 1);
+
+                                if (cellValue == null || cellValue == DBNull.Value)
+                                {
+                                    cell.Value = "";
+                                }
+                                else if (cellValue is DateTime dateTime)
+                                {
+                                    cell.Value = dateTime;
+                                    cell.Style.DateFormat.Format = "dd.MM.yyyy HH:mm:ss";
+                                }
+                                else if (cellValue is decimal || cellValue is double || cellValue is float)
+                                {
+                                    cell.Value = Convert.ToDouble(cellValue);
+                                    cell.Style.NumberFormat.Format = "#,##0.00";
+                                }
+                                else
+                                {
+                                    cell.Value = cellValue.ToString();
+                                }
+                            }
+                            currentRow++;
+                        }
+                    }
+
+                    // Автоподбор ширины колонок
+                    worksheet.Columns().AdjustToContents();
+
+                    // Сохраняем файл
+                    workbook.SaveAs(filePath);
+                }
+
+                MessageBox.Show($"XLSX файл успешно сохранен!\nПуть: {filePath}", "Успех",
+                               MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Опционально: открыть папку с файлом
+                System.Diagnostics.Process.Start("explorer.exe", $"/select, \"{filePath}\"");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при сохранении XLSX: {ex.Message}", "Ошибка",
+                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public string EscapeCsvField(string field)
+        {
+            if (string.IsNullOrEmpty(field))
+                return "";
+
+            if ((field.Contains(",") || field.Contains("\"") || field.Contains("\n")) &&
+                (!field.StartsWith("\"") && !field.EndsWith("\"")))
+            {
+                field = field.Replace("\"", "\"\"");
+                return $"\"{field}\"";
+            }
+            return field;
         }
     }
 }
