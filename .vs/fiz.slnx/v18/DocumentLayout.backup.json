@@ -1,85 +1,93 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\mrkri\\Desktop\\fiz-main\\",
+  "WorkspaceRootPath": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\mrkri\\desktop\\fiz-main\\fiz\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\\u0434\u0438\u043C\u0430\\desktop\\fiz-main\\fiz\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\mrkri\\desktop\\fiz-main\\fiz\\data\\sqlitehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\data\\sqlitehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\\u0434\u0438\u043C\u0430\\desktop\\fiz-main\\fiz\\properties\\resources.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\properties\\resources.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\mrkri\\desktop\\fiz-main\\fiz\\models\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\models\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\\u0434\u0438\u043C\u0430\\desktop\\fiz-main\\fiz\\models\\reports.cs||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\models\\reports.cs||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\mrkri\\desktop\\fiz-main\\fiz\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\mrkri\\desktop\\fiz-main\\fiz\\data\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\data\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\mrkri\\desktop\\fiz-main\\fiz\\models\\participation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\models\\participation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\mrkri\\desktop\\fiz-main\\fiz\\forms\\participationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\participationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\mrkri\\desktop\\fiz-main\\fiz\\forms\\cruddialogs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\cruddialogs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\mrkri\\desktop\\fiz-main\\fiz\\forms\\eventform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\\u0434\u0438\u043C\u0430\\desktop\\fiz-main\\fiz\\forms\\eventform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\eventform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\\u0434\u0438\u043C\u0430\\desktop\\fiz-main\\fiz\\forms\\cruddialogs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\cruddialogs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\mrkri\\desktop\\fiz-main\\fiz\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\\u0434\u0438\u043C\u0430\\desktop\\fiz-main\\fiz\\forms\\participationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\participationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\mrkri\\desktop\\fiz-main\\fiz\\roundedcontrols.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\roundedcontrols.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\mrkri\\desktop\\fiz-main\\fiz\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\mrkri\\desktop\\fiz-main\\fiz\\forms\\registerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\registerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\forms\\studentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\studentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\mrkri\\desktop\\fiz-main\\fiz\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\forms\\eventform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\eventform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\mrkri\\desktop\\fiz-main\\fiz\\forms\\studentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\\u0434\u0438\u043C\u0430\\desktop\\fiz-main\\fiz\\forms\\studentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\studentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC341B82-436F-46CA-B4BE-2B94F36AEB7D}|fiz\\fiz.csproj|C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\forms\\eventform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\\u0434\u0438\u043C\u0430\\desktop\\fiz-main\\fiz\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\\u0434\u0438\u043C\u0430\\desktop\\fiz-main\\fiz\\models\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\models\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\\u0434\u0438\u043C\u0430\\desktop\\fiz-main\\fiz\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\\u0434\u0438\u043C\u0430\\desktop\\fiz-main\\fiz\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\\u0434\u0438\u043C\u0430\\desktop\\fiz-main\\fiz\\data\\sqlitehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\data\\sqlitehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\\u0434\u0438\u043C\u0430\\desktop\\fiz-main\\fiz\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\\u0434\u0438\u043C\u0430\\desktop\\fiz-main\\fiz\\models\\participation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\models\\participation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\forms\\eventform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\eventform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\\u0434\u0438\u043C\u0430\\desktop\\fiz-main\\fiz\\data\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\data\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\\u0434\u0438\u043C\u0430\\desktop\\fiz-main\\fiz\\roundedcontrols.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\roundedcontrols.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\\u0434\u0438\u043C\u0430\\desktop\\fiz-main\\fiz\\forms\\registerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\registerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\forms\\studentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\studentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC341B82-436F-46CA-B4BE-2B94F36AEB7D}|fiz\\fiz.csproj|C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\forms\\eventform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{BC341B82-436F-46CA-B4BE-2B94F36AEB7D}|fiz\\fiz.csproj|solutionrelative:fiz\\forms\\eventform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\mrkri\\desktop\\fiz-main\\fiz\\fiz.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "AbsoluteMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|c:\\users\\\u0434\u0438\u043C\u0430\\desktop\\fiz-main\\fiz\\fiz.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
       "RelativeMoniker": "D:0:0:{F95618B5-7124-4C63-99BA-75EFF06AAD22}|fiz\\fiz.csproj|solutionrelative:fiz\\fiz.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     }
   ],
@@ -90,88 +98,77 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "SQLiteHelper.cs",
-              "DocumentMoniker": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Data\\SQLiteHelper.cs",
-              "RelativeDocumentMoniker": "fiz\\Data\\SQLiteHelper.cs",
-              "ToolTip": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Data\\SQLiteHelper.cs",
-              "RelativeToolTip": "fiz\\Data\\SQLiteHelper.cs",
-              "ViewState": "AgIAAJcAAAAAAAAAAAApwLUAAAAJAAAAAAAAAA==",
+              "Title": "Resources.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Properties\\Resources.Designer.cs",
+              "RelativeDocumentMoniker": "fiz\\Properties\\Resources.Designer.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Properties\\Resources.Designer.cs",
+              "RelativeToolTip": "fiz\\Properties\\Resources.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T11:02:12.275Z"
+              "WhenOpened": "2026-04-03T20:45:18.154Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "EventForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Forms\\EventForm.cs",
-              "RelativeDocumentMoniker": "fiz\\Forms\\EventForm.cs",
-              "ToolTip": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Forms\\EventForm.cs [Design]",
-              "RelativeToolTip": "fiz\\Forms\\EventForm.cs [Design]",
+              "DocumentIndex": 2,
+              "Title": "Reports.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Models\\Reports.cs",
+              "RelativeDocumentMoniker": "fiz\\Models\\Reports.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Models\\Reports.cs",
+              "RelativeToolTip": "fiz\\Models\\Reports.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAIwBIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T08:14:37.632Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Models\\User.cs",
-              "RelativeDocumentMoniker": "fiz\\Models\\User.cs",
-              "ToolTip": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Models\\User.cs",
-              "RelativeToolTip": "fiz\\Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T08:40:21.912Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "EventForm.cs",
-              "DocumentMoniker": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Forms\\EventForm.cs",
-              "RelativeDocumentMoniker": "fiz\\Forms\\EventForm.cs",
-              "ToolTip": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Forms\\EventForm.cs",
-              "RelativeToolTip": "fiz\\Forms\\EventForm.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAAAGQAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T07:57:39.621Z"
+              "WhenOpened": "2026-04-03T16:26:11.413Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "MainForm.cs",
-              "DocumentMoniker": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Forms\\MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Forms\\MainForm.cs",
               "RelativeDocumentMoniker": "fiz\\Forms\\MainForm.cs",
-              "ToolTip": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Forms\\MainForm.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Forms\\MainForm.cs",
               "RelativeToolTip": "fiz\\Forms\\MainForm.cs",
-              "ViewState": "AgIAANEAAAAAAAAAAAA1wM4AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-10T08:02:37.852Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
+              "Title": "EventForm.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Forms\\EventForm.cs",
+              "RelativeDocumentMoniker": "fiz\\Forms\\EventForm.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Forms\\EventForm.cs",
+              "RelativeToolTip": "fiz\\Forms\\EventForm.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAFEAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T07:57:39.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "CrudDialogs.cs",
-              "DocumentMoniker": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Forms\\CrudDialogs.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Forms\\CrudDialogs.cs",
               "RelativeDocumentMoniker": "fiz\\Forms\\CrudDialogs.cs",
-              "ToolTip": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Forms\\CrudDialogs.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Forms\\CrudDialogs.cs",
               "RelativeToolTip": "fiz\\Forms\\CrudDialogs.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIkAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAqwDMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-17T05:20:48.694Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 9,
               "Title": "LoginForm.cs",
-              "DocumentMoniker": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Forms\\LoginForm.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Forms\\LoginForm.cs",
               "RelativeDocumentMoniker": "fiz\\Forms\\LoginForm.cs",
-              "ToolTip": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Forms\\LoginForm.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Forms\\LoginForm.cs",
               "RelativeToolTip": "fiz\\Forms\\LoginForm.cs",
               "ViewState": "AgIAAD0AAAAAAAAAAAAiwD0AAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -179,11 +176,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
               "Title": "Student.cs",
-              "DocumentMoniker": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Models\\Student.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Models\\Student.cs",
               "RelativeDocumentMoniker": "fiz\\Models\\Student.cs",
-              "ToolTip": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Models\\Student.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Models\\Student.cs",
               "RelativeToolTip": "fiz\\Models\\Student.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwBAAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -191,23 +188,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 15,
               "Title": "Database.cs",
-              "DocumentMoniker": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Data\\Database.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Data\\Database.cs",
               "RelativeDocumentMoniker": "fiz\\Data\\Database.cs",
-              "ToolTip": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Data\\Database.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Data\\Database.cs",
               "RelativeToolTip": "fiz\\Data\\Database.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAiwCIAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAcwC0AAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-10T08:16:10.602Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "Event.cs",
-              "DocumentMoniker": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Models\\Event.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Models\\Event.cs",
               "RelativeDocumentMoniker": "fiz\\Models\\Event.cs",
-              "ToolTip": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Models\\Event.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Models\\Event.cs",
               "RelativeToolTip": "fiz\\Models\\Event.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -215,82 +212,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ParticipationForm.cs",
-              "DocumentMoniker": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Forms\\ParticipationForm.cs",
-              "RelativeDocumentMoniker": "fiz\\Forms\\ParticipationForm.cs",
-              "ToolTip": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Forms\\ParticipationForm.cs",
-              "RelativeToolTip": "fiz\\Forms\\ParticipationForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGQAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T07:53:35.939Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Participation.cs",
-              "DocumentMoniker": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Models\\Participation.cs",
-              "RelativeDocumentMoniker": "fiz\\Models\\Participation.cs",
-              "ToolTip": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Models\\Participation.cs",
-              "RelativeToolTip": "fiz\\Models\\Participation.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-01T10:28:15.983Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "MainForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Forms\\MainForm.cs",
-              "RelativeDocumentMoniker": "fiz\\Forms\\MainForm.cs",
-              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\MainForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T08:23:30.334Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "RoundedControls.cs",
-              "DocumentMoniker": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\RoundedControls.cs",
-              "RelativeDocumentMoniker": "fiz\\RoundedControls.cs",
-              "ToolTip": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\RoundedControls.cs",
-              "RelativeToolTip": "fiz\\RoundedControls.cs",
-              "ViewState": "AgIAAKYAAAAAAAAAAAAiwMQAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T08:06:38.53Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "RegisterForm.cs",
-              "DocumentMoniker": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Forms\\RegisterForm.cs",
-              "RelativeDocumentMoniker": "fiz\\Forms\\RegisterForm.cs",
-              "ToolTip": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Forms\\RegisterForm.cs",
-              "RelativeToolTip": "fiz\\Forms\\RegisterForm.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAqwEQAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T08:03:01.312Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "StudentForm.cs",
-              "DocumentMoniker": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Forms\\StudentForm.cs",
-              "RelativeDocumentMoniker": "fiz\\Forms\\StudentForm.cs",
-              "ToolTip": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Forms\\StudentForm.cs",
-              "RelativeToolTip": "fiz\\Forms\\StudentForm.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAIBZwGQAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T08:03:08.519Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 7,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Program.cs",
               "RelativeDocumentMoniker": "fiz\\Program.cs",
-              "ToolTip": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Program.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Program.cs",
               "RelativeToolTip": "fiz\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -298,9 +224,115 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ParticipationForm.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Forms\\ParticipationForm.cs",
+              "RelativeDocumentMoniker": "fiz\\Forms\\ParticipationForm.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Forms\\ParticipationForm.cs",
+              "RelativeToolTip": "fiz\\Forms\\ParticipationForm.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAAAD4AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T07:53:35.939Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "StudentForm.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Forms\\StudentForm.cs",
+              "RelativeDocumentMoniker": "fiz\\Forms\\StudentForm.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Forms\\StudentForm.cs",
+              "RelativeToolTip": "fiz\\Forms\\StudentForm.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAAAD4AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T08:03:08.519Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Models\\User.cs",
+              "RelativeDocumentMoniker": "fiz\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Models\\User.cs",
+              "RelativeToolTip": "fiz\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T08:40:21.912Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "SQLiteHelper.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Data\\SQLiteHelper.cs",
+              "RelativeDocumentMoniker": "fiz\\Data\\SQLiteHelper.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Data\\SQLiteHelper.cs",
+              "RelativeToolTip": "fiz\\Data\\SQLiteHelper.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T11:02:12.275Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Participation.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Models\\Participation.cs",
+              "RelativeDocumentMoniker": "fiz\\Models\\Participation.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Models\\Participation.cs",
+              "RelativeToolTip": "fiz\\Models\\Participation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T10:28:15.983Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 14,
+              "Title": "EventForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Forms\\EventForm.cs",
+              "RelativeDocumentMoniker": "fiz\\Forms\\EventForm.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Forms\\EventForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "fiz\\Forms\\EventForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T08:14:37.632Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "MainForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Forms\\MainForm.cs",
+              "RelativeDocumentMoniker": "fiz\\Forms\\MainForm.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\MainForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T08:23:30.334Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "RoundedControls.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\RoundedControls.cs",
+              "RelativeDocumentMoniker": "fiz\\RoundedControls.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\RoundedControls.cs",
+              "RelativeToolTip": "fiz\\RoundedControls.cs",
+              "ViewState": "AgIAAKYAAAAAAAAAAAAiwMQAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T08:06:38.53Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "RegisterForm.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Forms\\RegisterForm.cs",
+              "RelativeDocumentMoniker": "fiz\\Forms\\RegisterForm.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Forms\\RegisterForm.cs",
+              "RelativeToolTip": "fiz\\Forms\\RegisterForm.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAqwEQAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T08:03:01.312Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
               "Title": "StudentForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Forms\\StudentForm.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Forms\\StudentForm.cs",
               "RelativeDocumentMoniker": "fiz\\Forms\\StudentForm.cs",
               "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\StudentForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -308,9 +340,9 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "EventForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\Forms\\EventForm.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\Forms\\EventForm.cs",
               "RelativeDocumentMoniker": "fiz\\Forms\\EventForm.cs",
               "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u041F\u0418\u042D-23\\3 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\Project\\fiz\\fiz\\Forms\\EventForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -318,11 +350,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "fiz",
-              "DocumentMoniker": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\fiz.csproj",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\fiz.csproj",
               "RelativeDocumentMoniker": "fiz\\fiz.csproj",
-              "ToolTip": "C:\\Users\\mrkri\\Desktop\\fiz-main\\fiz\\fiz.csproj",
+              "ToolTip": "C:\\Users\\\u0414\u0438\u043C\u0430\\Desktop\\fiz-main\\fiz\\fiz.csproj",
               "RelativeToolTip": "fiz\\fiz.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2026-03-10T08:00:51.522Z"
