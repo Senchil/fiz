@@ -249,6 +249,9 @@ namespace fiz
                     CreateColumn("CreatedBy", "Создал", 100)
                 });
 
+            eventsGrid.Columns["EventType"].Visible = false;
+            eventsGrid.Columns["IsOfficial"].Visible = false;
+
             RefreshEventGrid(eventsGrid);
             tab.Controls.AddRange(new Control[] { addBtn, editBtn, deleteBtn, tocsvBtn, toxlsxBtn, eventsGrid });
         }
