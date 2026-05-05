@@ -12,7 +12,6 @@ namespace fiz.Forms
         public static bool TryEditStudent(IWin32Window owner, Student? existing, out Student result)
         {
             var s = existing ?? new Student();
-
             using var form = CreateBaseForm(existing == null ? "Добавить студента" : "Редактировать студента", "Данные студента");
             var layout = CreateFieldsLayout(form);
 
@@ -29,15 +28,19 @@ namespace fiz.Forms
                 return false;
             }
 
-            var fullName = tbFullName.Text.Trim();
-            if (string.IsNullOrWhiteSpace(fullName))
+            if (IsPlaceholder(tbFullName.Text, "Введите ФИО студента") ||
+                IsPlaceholder(tbFaculty.Text, "Факультет") ||
+                IsPlaceholder(tbGroup.Text, "Например, ИИ‑23") ||
+                IsPlaceholder(tbCard.Text, "Номер студенческого") ||
+                IsPlaceholder(tbContact.Text, "Телефон / email"))
             {
-                MessageBox.Show(owner, "ФИО не может быть пустым.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(owner, "Заполнены не все поля студента!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 result = s;
                 return false;
             }
 
-            s.FullName = fullName;
+            s.FullName = tbFullName.Text.Trim();
             s.Faculty = tbFaculty.Text.Trim();
             s.Group = tbGroup.Text.Trim();
             s.StudentCardNumber = tbCard.Text.Trim();
@@ -51,7 +54,6 @@ namespace fiz.Forms
         public static bool TryEditEvent(IWin32Window owner, Event? existing, out Event result)
         {
             var ev = existing ?? new Event();
-
             using var form = CreateBaseForm(existing == null ? "Добавить мероприятие" : "Редактировать мероприятие", "Данные мероприятия");
             var layout = CreateFieldsLayout(form);
 
@@ -61,7 +63,6 @@ namespace fiz.Forms
             var tbOrganizer = AddRoundedRow(layout, "Организатор", ev.Organizer, "Кафедра / факультет");
             var tbSport = AddRoundedRow(layout, "Вид спорта", ev.SportType, "Например, Плавание");
             var numCount = AddNumericRow(layout, "Участников", ev.ParticipantCount);
-
             var cbLevel = AddComboRow(layout, "Уровень", new[] { "Региональный", "Межрегиональный", "Всероссийский", "Международный" }, ev.Level);
             var cbType = AddComboRow(layout, "Тип", new[] { "Обычное", "Комплексное" }, ev.EventType);
             var cbOfficial = AddCheckRow(layout, "Официальное", ev.IsOfficial);
@@ -72,15 +73,20 @@ namespace fiz.Forms
                 return false;
             }
 
-            var name = tbName.Text.Trim();
-            if (string.IsNullOrWhiteSpace(name))
+            if (IsPlaceholder(tbName.Text, "Название соревнования") ||
+                IsPlaceholder(tbLocation.Text, "Спортивный зал / стадион") ||
+                IsPlaceholder(tbOrganizer.Text, "Кафедра / факультет") ||
+                IsPlaceholder(tbSport.Text, "Например, Плавание") ||
+                cbLevel.SelectedIndex < 0 ||
+                cbType.SelectedIndex < 0)
             {
-                MessageBox.Show(owner, "Название не может быть пустым.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(owner, "Заполнены не все поля мероприятия! Проверьте текстовые поля и выпадающие списки.", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 result = ev;
                 return false;
             }
 
-            ev.Name = name;
+            ev.Name = tbName.Text.Trim();
             ev.Date = dpDate.Value;
             ev.Location = tbLocation.Text.Trim();
             ev.Organizer = tbOrganizer.Text.Trim();
@@ -97,7 +103,6 @@ namespace fiz.Forms
         public static bool TryEditParticipation(IWin32Window owner, Participation? existing, out Participation result)
         {
             var p = existing ?? new Participation();
-
             using var form = CreateBaseForm(existing == null ? "Добавить участие" : "Редактировать участие", "Данные участия");
             var layout = CreateFieldsLayout(form);
 
@@ -115,18 +120,21 @@ namespace fiz.Forms
                 return false;
             }
 
-            var eventName = cbEvent.SelectedItem?.ToString();
-            var studentName = tbStudent.Text.Trim();
-
-            if (string.IsNullOrWhiteSpace(eventName) || string.IsNullOrWhiteSpace(studentName))
+            if (cbEvent.SelectedIndex < 0 ||
+                IsPlaceholder(tbStudent.Text, "ФИО студента") ||
+                IsPlaceholder(tbResult.Text, "Например, Призовое место") ||
+                IsPlaceholder(tbAward.Text, "Кубок / медаль / грамота") ||
+                IsPlaceholder(tbRank.Text, "Разряд / категория") ||
+                IsPlaceholder(tbAddedBy.Text, "Ответственный пользователь"))
             {
-                MessageBox.Show(owner, "Поля \"Мероприятие\" и \"Студент\" обязательны.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(owner, "Заполнены не все поля участия!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 result = p;
                 return false;
             }
 
-            p.EventName = eventName;
-            p.StudentName = studentName;
+            p.EventName = cbEvent.SelectedItem?.ToString() ?? "";
+            p.StudentName = tbStudent.Text.Trim();
             p.Result = tbResult.Text.Trim();
             p.Award = tbAward.Text.Trim();
             p.Rank = tbRank.Text.Trim();
@@ -135,6 +143,15 @@ namespace fiz.Forms
 
             result = p;
             return true;
+        }
+
+        // Вспомогательный метод
+        private static bool IsPlaceholder(string text, string placeholder)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+                return true;
+
+            return text.Trim() == placeholder;
         }
 
         private static string[] GetEventNames()
