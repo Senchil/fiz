@@ -9,6 +9,7 @@ public class RoundedTextBox : TextBox
     private int borderRadius = 15;
     private string placeholderText = "";
     private bool isPlaceholder = false;
+    private bool updatingPlaceholder = false;
     private Button toggleButton;
     private bool showPasswordToggle = false;
     private char passwordChar = '\0';
@@ -84,18 +85,22 @@ public class RoundedTextBox : TextBox
 
     private void ShowPlaceholder()
     {
+        updatingPlaceholder = true;
         base.PasswordChar = '\0';
         this.Text = placeholderText;
         this.ForeColor = Color.Gray;
         isPlaceholder = true;
+        updatingPlaceholder = false;
     }
 
     private void HidePlaceholder()
     {
+        updatingPlaceholder = true;
         this.Text = "";
         this.ForeColor = Color.Black;
         base.PasswordChar = passwordChar;
         isPlaceholder = false;
+        updatingPlaceholder = false;
     }
 
     private void CreateToggleButton()
@@ -186,9 +191,14 @@ public class RoundedTextBox : TextBox
     {
         base.OnTextChanged(e);
 
-        if (!isPlaceholder && !string.IsNullOrEmpty(this.Text) && this.ForeColor == Color.Gray)
+        // When text is set externally (not by ShowPlaceholder/HidePlaceholder)
+        // and the control thinks it's showing a placeholder, reset the flag
+        // so that OnEnter doesn't wipe the real data.
+        if (!updatingPlaceholder && isPlaceholder && this.Text != placeholderText)
         {
-            base.PasswordChar = '\0';
+            isPlaceholder = false;
+            this.ForeColor = Color.Black;
+            base.PasswordChar = passwordChar;
         }
     }
 
